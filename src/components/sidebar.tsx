@@ -41,7 +41,7 @@ const DashboardSidebar = ({
         <SidebarHeader className="px-0">
           <div className="flex justify-center items-center gap-x-6">
             <div
-              className={cn("relative w-[243.79px] h-[37.88]", {
+              className={cn("relative w-[243.79px] h-[37.88px]", {
                 // hidden: expandSidebar,
                 "h-9 w-9": !open,
               })}
