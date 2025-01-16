@@ -16,7 +16,7 @@ export const sidebarData: navMainTypes[] = [
   {
     id: 1,
     title: "Dashbaord",
-    url: "#",
+    url: "/",
     icon: AiOutlineHome,
   },
   {
@@ -25,19 +25,19 @@ export const sidebarData: navMainTypes[] = [
   {
     id: 2,
     title: "Assessments",
-    url: "#",
+    url: "/assessments",
     icon: BsClipboardCheck,
   },
   {
     id: 3,
     title: "Courses",
-    url: "#",
+    url: "/",
     icon: IoSchoolOutline,
   },
   {
     id: 4,
     title: "Sections",
-    url: "#",
+    url: "/",
     icon: HiOutlineBookOpen,
   },
 ];

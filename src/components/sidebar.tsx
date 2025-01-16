@@ -80,7 +80,7 @@ const DashboardSidebar = ({
                       onClick={() => setActiveTab(item?.id)}
                     >
                       <Link
-                        href={"/"}
+                        href={item.url ? item.url : "/"}
                         className={cn("flex items-center gap-[5px] ", {
                           "text-primary-blue": activeTab === item.id,
                           "gap-x-6": !open,
