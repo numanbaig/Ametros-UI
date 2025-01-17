@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -5,7 +7,6 @@ import ReCAPTCHA from "react-google-recaptcha";
 const Recaptchaverification = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const SITE_KEY = process.env.RECAPTCHA_SITE_KEY;
-  if (!SITE_KEY) return;
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -30,7 +31,7 @@ const Recaptchaverification = () => {
     <div className="recaptcha-container">
       <ReCAPTCHA
         ref={recaptchaRef}
-        sitekey={SITE_KEY || ""}
+        sitekey={"6Lc6g7oqAAAAAEp6NFFN8QMTVx2MhNoZcWCTPheR"}
         size="normal" // Use the compact size for better alignment
       />
     </div>
