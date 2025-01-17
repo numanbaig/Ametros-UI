@@ -9,8 +9,11 @@ const AssistantHeader = ({
   setOpenChatBox: (value: boolean) => void;
 }) => {
   return (
-    <div className="flex justify-between items-center py-2 px-8 w-full bg-primary-blue h-16">
-      <Typography variant="body1" className="text-neutral-white">
+    <div className="flex justify-between items-center py-2 px-8 w-full bg-primary-blueLight h-16">
+      <Typography
+        variant="h5"
+        className="font-bold leading-6 text-primary-darkCyan"
+      >
         Assistant
       </Typography>
       <Button

@@ -31,13 +31,13 @@ export const sidebarData: navMainTypes[] = [
   {
     id: 3,
     title: "Courses",
-    url: "/",
+    url: "/courses",
     icon: IoSchoolOutline,
   },
   {
     id: 4,
     title: "Sections",
-    url: "/",
+    url: "/sections",
     icon: HiOutlineBookOpen,
   },
 ];

@@ -21,7 +21,7 @@ const DashboardAssistant = ({
     <Popover open={openChatBox} onOpenChange={setOpenChatBox}>
       <PopoverTrigger asChild>
         <Button
-          className="!p-0 bg-transparent"
+          className="!p-0 bg-transparent !shrink-0"
           onClick={() => {
             setOpenChatBox((prev) => !prev);
             setPopup(false);
@@ -34,7 +34,7 @@ const DashboardAssistant = ({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className=" mr-12 mb-6 !w-[431px]  rounded-[16px] shadow-custom border-none p-0 overflow-hidden flex flex-col">
+      <PopoverContent className="mr-7 sm:mr-9 mb-6 sm:w-[431px] w-[90vw] ml-auto rounded-[16px] shadow-custom border-none p-0 overflow-hidden flex flex-col">
         <AssistantHeader setOpenChatBox={setOpenChatBox} />
         <div className="relative p-4 min-h-[333px] max-h-[687px]">
           <div className="flex flex-col flex-1 w-full">

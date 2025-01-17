@@ -16,19 +16,16 @@ const DashboardCustomButton = ({
   return (
     <Button
       className={cn(
-        "space-x-[10px] px-8 bg-primary-blue w-[247px] h-12 rounded-[32px] hover:bg-primary-blue",
+        "space-x-[10px] px-8 bg-primary-blueLight w-[247px] h-12 rounded-[32px] text-[18px] font-[600] text-primary-darkCyan",
         className
       )}
     >
       {icon && (
         <div>
-          <ImageComponent className="size-4" src={icon} alt="angle-down" />
+          <ImageComponent className="size-3" src={icon} alt="angle-down" />
         </div>
       )}
-      <Typography
-        variant="body1"
-        className="text-[18px] font-[500] text-neutral-white"
-      >
+      <Typography variant="body1" className="">
         {children}
       </Typography>
     </Button>

@@ -10,7 +10,7 @@ interface AssistantInput {
 
 const AssistantInput = ({ message, setMessage }: AssistantInput) => {
   return (
-    <div className="w-[400px] mx-auto left-0 h-12 ronuded-[8px] py-7 px-4 flex justify-between items-center gap-4 bg-white border border-[#DDE1E5] rounded-[8px] mt-4">
+    <div className="sm:w-[400px] w-[92%] mx-auto left-0 h-12 ronuded-[8px] py-7 px-4 flex justify-between items-center gap-4 bg-white border border-[#DDE1E5] rounded-[8px] mt-4">
       <Input
         type="text"
         value={message}

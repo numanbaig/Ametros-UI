@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
 export default {
@@ -17,7 +18,7 @@ export default {
       },
       colors: {
         neutral: {
-          black: "#282828",
+          black: "#212121",
           darkGray: "#838B8D",
           gray: "#80979F",
           lightGray: "#AEB6B8",
@@ -26,7 +27,9 @@ export default {
           white: "#FFFFFF",
         },
         primary: {
-          blue: "#0084F8",
+          blue: "#1AA3B3",
+          blueLight: "#C7F1F6",
+          darkCyan: "#0D444A",
           orange: "#C96026",
           lightGreen: "#F9B934",
           yellow: "#FFDA6B",
