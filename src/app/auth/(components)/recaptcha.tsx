@@ -4,7 +4,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 const Recaptchaverification = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-
+  const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  if (!SITE_KEY) return;
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -29,7 +30,7 @@ const Recaptchaverification = () => {
     <div className="recaptcha-container">
       <ReCAPTCHA
         ref={recaptchaRef}
-        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+        sitekey={SITE_KEY || ""}
         size="normal" // Use the compact size for better alignment
       />
     </div>
