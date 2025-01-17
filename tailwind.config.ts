@@ -29,6 +29,7 @@ export default {
         primary: {
           blue: "#1AA3B3",
           blueLight: "#C7F1F6",
+          darkBlue: "#001B36",
           darkCyan: "#0D444A",
           orange: "#C96026",
           lightGreen: "#F9B934",

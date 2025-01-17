@@ -9,15 +9,20 @@ import DashboardAuthButtons from "@/app/auth/(components)/auth-buttons";
 const DashboardHeader = () => {
   const isAuthenticated = false;
   return (
-    <div className="flex justify-between items-center w-full py-4 px-8 h-20 bg-[#F8F8F8]">
+    <div className="flex justify-between items-center w-full py-4 sm:px-8 px-4 h-20 bg-[#F8F8F8]">
       {!isAuthenticated ? (
-        <div className={cn("relative w-[243.79px] h-[37.88px]", {})}>
+        <div
+          className={cn(
+            "relative w-[120px] h-[30px] sm:w-[143.79px] sm:h-[37.88px]",
+            {}
+          )}
+        >
           <Image
             src={"/assets/logo.png"}
             alt="logo"
             fill
             priority
-            className="object-contain w-full"
+            className=" w-full"
           />
         </div>
       ) : (

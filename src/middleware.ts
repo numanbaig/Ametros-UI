@@ -1,22 +1,42 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
-  const isAuthenticated = false;
+// Helper function to check if the path is for a public file
+function isPublicFile(pathname: string) {
+  return (
+    pathname.includes(".") &&
+    (pathname.startsWith("/images/") ||
+      pathname.startsWith("/videos/") ||
+      pathname.startsWith("/fonts/") ||
+      pathname.startsWith("/assets/"))
+  );
+}
 
-  const { pathname } = new URL(request.url);
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // Allow direct access to public files
+  if (isPublicFile(pathname)) {
+    return NextResponse.next();
+  }
+
+  // For development - replace with actual auth logic later
+  const isAuthenticated = false; // Temporarily set to true for development
+
   const publicRoutes = [
     "/auth/login",
     "/auth/register",
-    "/auth/forget-password",
+    "/auth/forgot-password",
   ];
+
   const isPublicRoute = publicRoutes.includes(pathname);
 
+  // Redirect to login if trying to access protected routes while not authenticated
   if (!isAuthenticated && !isPublicRoute) {
     return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 
-  // Redirect authenticated users away from auth pages
+  // Redirect to home if trying to access auth pages while authenticated
   if (isAuthenticated && isPublicRoute) {
     return NextResponse.redirect(new URL("/", request.url));
   }
@@ -27,13 +47,11 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public folder
+     * Match all routes except:
+     * - API routes
+     * - Next.js internals
+     * - Direct public file access
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|public).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
 };

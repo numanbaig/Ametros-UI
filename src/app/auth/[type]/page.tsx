@@ -1,47 +1,35 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { notFound } from "next/navigation";
 import React from "react";
 import DashboardAuthHeader from "../(components)/auth-header";
 import { AuthType } from "@/types";
+import DashboardAuthForm from "../(components)/auth-form";
+import { cn } from "@/lib/utils";
 
-const DashboardAuthPage = async ({ params }: { params: Promise<any> }) => {
-  const url = await params;
-  const authRoute = ["/auth/login", "/auth/register", "/auth/forget-password"];
-  const checkRoute = () => {
-    if (url) {
-      const route = authRoute.some(
-        (route) => !route.includes(url) && route !== url
-      );
-      console.log(route);
-      return route;
-    }
+const DashboardAuthPage = async ({
+  params,
+}: {
+  params: Promise<{ type: string }>;
+}) => {
+  const { type } = await params;
+  console.log(type);
 
+  if (!Object.values(AuthType).includes(type as AuthType)) {
     return notFound();
-  };
-  if (!checkRoute()) return notFound();
+  }
 
-  // const getFormType = () => {
-  //   switch (url) {
-  //     case url.includes():
+  // Map the URL to the corresponding form type
+  const formType = type;
 
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  // }
-
-  const formType =
-    url === AuthType.LOGIN
-      ? "login"
-      : url === AuthType.REGISTER
-      ? "register"
-      : url === AuthType.FORGET_PASSWORD
-      ? "forgot-password"
-      : "";
   return (
-    <div className="space-y-7">
+    <div className="space-y-7 w-full">
       <DashboardAuthHeader type={formType} />
+      <div
+        className={cn("w-[95%] lg:w-[824px] mx-auto", {
+          "w-[95%] sm:w-[500px]": type !== AuthType.REGISTER,
+        })}
+      >
+        <DashboardAuthForm type={formType} />
+      </div>
     </div>
   );
 };
