@@ -8,7 +8,7 @@ import { Separator } from "@radix-ui/react-separator";
 
 const DashboardAssessmentCard = () => {
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 gap-6 w-full">
+    <div className="grid grid-cols-1 xl:grid-cols-3 sm:grid-cols-2 gap-6 w-full">
       {assessmentData.map((assessment) => (
         <div
           className="flex flex-col gap-[16px] shadow-custom p-6 rounded-[16px]"

@@ -43,7 +43,7 @@ const DashboardSidebar = ({
     typeof window !== "undefined" ? window.innerWidth : 0
   );
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       setWindowWidth(width);
@@ -78,7 +78,7 @@ const DashboardSidebar = ({
         <SidebarHeader className="px-0">
           <div className="flex justify-center items-center gap-x-6">
             <div
-              className={cn("relative w-[243.79px] h-[37.88px]", {
+              className={cn("relative w-[143.79px] h-[37.88px]", {
                 "h-9 w-9": !open,
               })}
             >
@@ -87,7 +87,7 @@ const DashboardSidebar = ({
                 alt="logo"
                 fill
                 priority
-                className="object-contain w-full"
+                className="w-full"
               />
             </div>
             <SidebarTrigger

@@ -93,6 +93,7 @@ const SidebarProvider = React.forwardRef<
 
     // Helper to toggle the sidebar.
     const toggleSidebar = React.useCallback(() => {
+      alert("toggle");
       return isMobile
         ? setOpenMobile((open) => open)
         : setOpen((open) => !open);
@@ -195,6 +196,7 @@ const Sidebar = React.forwardRef<
     }
 
     if (isMobile) {
+      console.log("mobile open check", openMobile);
       return (
         <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
           <SheetContent

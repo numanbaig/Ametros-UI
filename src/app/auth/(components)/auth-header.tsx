@@ -4,7 +4,6 @@ import { AuthType } from "@/types";
 import React from "react";
 
 const DashboardAuthHeader = ({ type }: { type: string }) => {
-  console.log(type);
   return (
     <div className="space-y-7 flex flex-col items-center justify-center">
       <ImageComponent
@@ -23,7 +22,7 @@ const DashboardAuthHeader = ({ type }: { type: string }) => {
       {type === AuthType.FORGET_PASSWORD && (
         <Typography
           variant="body1"
-          className="text-[#171616] text-[18px] font-bold leading-5 text-center"
+          className="text-[#171616] text-[14px] xs:text-[16px] sm:text-[18px] font-bold leading-5 text-center"
         >
           Please enter the email address that you used to register.
           <span className="block">

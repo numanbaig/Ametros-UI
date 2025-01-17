@@ -12,6 +12,7 @@ export default {
     extend: {
       screens: {
         xxl: "1440px",
+        xs: "420px",
       },
       boxShadow: {
         custom: "0 4px 16px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05)",

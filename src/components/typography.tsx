@@ -19,7 +19,7 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
 
 const variantStyles = {
   h1: "text-[64px] leading-[72px] font-normal",
-  h2: "text-[48px] leading-[56px] font-normal",
+  h2: "text-[38px] xs:text-[48px] leading-[56px] font-normal",
   h3: "text-[32px] leading-[40px] font-normal",
   h4: "text-[24px] leading-[32px] font-normal",
   h5: "text-[20px] leading-[28px] font-normal",

@@ -16,7 +16,7 @@ export default function AuthLayout({
     <main className="w-ful">
       <div className="flex h-screen flex-col w-full">
         <DashboardHeader />
-        <div className="flex-1 pt-[60px] sm:pt-[120px]  mx-auto w-full">
+        <div className="flex-1 pt-[60px] pb-[20px] md:pt-[120px]  mx-auto w-full">
           {children}
         </div>
       </div>
