@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 const Recaptchaverification = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  const SITE_KEY = process.env.RECAPTCHA_SITE_KEY;
   if (!SITE_KEY) return;
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
