@@ -24,8 +24,10 @@ const DashboardAuthPage = async ({
     <div className="space-y-7 w-full">
       <DashboardAuthHeader type={formType} />
       <div
-        className={cn("w-[95%] lg:w-[824px] mx-auto", {
-          "w-[95%] sm:w-[500px]": type !== AuthType.REGISTER,
+        className={cn("mx-auto", {
+          "w-[95%] sm:!w-[500px]":
+            type === AuthType.LOGIN || type === AuthType.FORGET_PASSWORD,
+          "w-[95%] lg:!w-[824px]": type === AuthType.REGISTER,
         })}
       >
         <DashboardAuthForm type={formType} />
