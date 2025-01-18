@@ -23,6 +23,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import DashboardCustomButton from "@/components/custom-button";
 import ImageComponent from "@/components/image-component";
 import Recaptchaverification from "./recaptcha";
+import {
+  ForgotPasswordFormData,
+  LoginFormData,
+  registerFormData,
+} from "@/utils";
+import CommonAuthForm from "./common-form";
+import PasswordRequirements from "./password-requirements";
 const DashboardAuthForm = ({ type }: { type: string }) => {
   const formSchema = AuthFormSchema(type);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -41,6 +48,13 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
     console.log(data);
   };
 
+  const formInputsData =
+    type === AuthType.REGISTER
+      ? registerFormData
+      : type === AuthType.LOGIN
+      ? LoginFormData
+      : ForgotPasswordFormData;
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className={cn("space-y-7")}>
@@ -50,7 +64,85 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
               type === AuthType.REGISTER,
           })}
         >
-          {type === AuthType.REGISTER && (
+          {formInputsData.map(({ id, name, type, label }) => {
+            return (
+              <CommonAuthForm
+                key={id}
+                name={name}
+                type={type}
+                label={label}
+                form={form}
+              />
+            );
+          })}
+
+          {type === AuthType.LOGIN && (
+            <>
+              <div className="flex justify-between items-center w-full">
+                <div className="flex items-center gap-x-2">
+                  <Checkbox id="terms" color="#1AA3B3" />
+                  <label
+                    htmlFor="terms"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    <Typography variant="body1" className="text-[#171616]">
+                      {" "}
+                      Remember me
+                    </Typography>
+                  </label>
+                </div>
+                <Link
+                  href="/auth/forgot-password"
+                  className="text-primary-blue underline"
+                >
+                  <Typography variant="body1">Forgot Password?</Typography>
+                </Link>
+              </div>
+              <div className="flex justify-center items-center gap-x-2 w-full">
+                <DashboardCustomButton className="h-[48px] w-full text-[16px] !font-bold shrink">
+                  Login
+                </DashboardCustomButton>
+                <Link href={"/auth/register"} className="w-full shrink">
+                  <DashboardCustomButton className="h-[48px] w-full bg-transparent border border-[#2BBECF] text-[16px] !font-bold">
+                    Sign Up
+                  </DashboardCustomButton>
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
+
+        {type === AuthType.REGISTER && (
+          <div className="flex md:flex-row flex-col gap-y-2 justify-between items-start w-full">
+            <PasswordRequirements />
+            <div>
+              <Recaptchaverification />
+            </div>
+          </div>
+        )}
+
+        {(type === AuthType.FORGET_PASSWORD || type === AuthType.REGISTER) && (
+          <>
+            <div
+              className={cn("w-full", {
+                "w-full sm:w-[500px] mx-auto": type === AuthType.REGISTER,
+              })}
+            >
+              <DashboardCustomButton className="h-[48px] w-full bg-primary-blueLight text-[16px] !font-bold">
+                Submit
+              </DashboardCustomButton>
+            </div>
+          </>
+        )}
+      </form>
+    </Form>
+  );
+};
+
+export default DashboardAuthForm;
+
+{
+  /* {type === AuthType.REGISTER && (
             <>
               <FormField
                 control={form.control}
@@ -216,97 +308,5 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
                 </FormItem>
               )}
             />
-          )}
-          {type === AuthType.LOGIN && (
-            <>
-              <div className="flex justify-between items-center w-full">
-                <div className="flex items-center gap-x-2">
-                  <Checkbox id="terms" color="#1AA3B3" />
-                  <label
-                    htmlFor="terms"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    <Typography variant="body1" className="text-[#171616]">
-                      {" "}
-                      Remember me
-                    </Typography>
-                  </label>
-                </div>
-                <Link
-                  href="/auth/forgot-password"
-                  className="text-primary-blue underline"
-                >
-                  <Typography variant="body1">Forgot Password?</Typography>
-                </Link>
-              </div>
-              <div className="flex justify-center items-center gap-x-2 w-full">
-                <DashboardCustomButton className="h-[48px] w-full text-[16px] !font-bold shrink">
-                  Login
-                </DashboardCustomButton>
-                <Link href={"/auth/register"} className="w-full shrink">
-                  <DashboardCustomButton className="h-[48px] w-full bg-transparent border border-[#2BBECF] text-[16px] !font-bold">
-                    Sign Up
-                  </DashboardCustomButton>
-                </Link>
-              </div>
-            </>
-          )}
-        </div>
-
-        {type === AuthType.REGISTER && (
-          <div className="flex md:flex-row flex-col gap-y-2 justify-between items-start w-full">
-            <div className="space-y-2">
-              <Typography variant="body1" className="font-bold text-[#545253]">
-                Password must meet the requirements:
-              </Typography>
-              <div className="grid grid-cols-2 gap-2 w-full">
-                {[
-                  "8 characters minimum",
-                  "One number",
-                  "One lowercase character",
-                  "Password Confirmed",
-                  "One uppercase character",
-                ].map((value, index) => (
-                  <div className="flex items-center gap-x-2" key={index}>
-                    <span>
-                      <ImageComponent
-                        className="size-4"
-                        src="/assets/icons/x-circle.svg"
-                        alt="x-circle"
-                      />
-                    </span>
-                    <Typography
-                      variant="body2"
-                      className="leading-[16px] text-[#545253]"
-                    >
-                      {value}
-                    </Typography>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="">
-              <Recaptchaverification />
-            </div>
-          </div>
-        )}
-
-        {(type === AuthType.FORGET_PASSWORD || type === AuthType.REGISTER) && (
-          <>
-            <div
-              className={cn("w-full", {
-                "w-full sm:w-[500px] mx-auto": type === AuthType.REGISTER,
-              })}
-            >
-              <DashboardCustomButton className="h-[48px] w-full bg-primary-blueLight text-[16px] !font-bold">
-                Submit
-              </DashboardCustomButton>
-            </div>
-          </>
-        )}
-      </form>
-    </Form>
-  );
-};
-
-export default DashboardAuthForm;
+          )} */
+}

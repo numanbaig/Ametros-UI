@@ -6,7 +6,7 @@ import DashboardUserProfileDrawer from "./user-profile-drawer";
 import { tree } from "next/dist/build/templates/app-page";
 import { cn } from "@/lib/utils";
 import DashboardAuthButtons from "@/app/auth/(components)/auth-buttons";
-import { SidebarTrigger } from "./ui/sidebar";
+// import { SidebarTrigger } from "./ui/sidebar";
 import { Menu } from "lucide-react";
 const DashboardHeader = () => {
   const isLoggedIn = false;
@@ -23,9 +23,9 @@ const DashboardHeader = () => {
               {}
             )}
           >
-            <SidebarTrigger className="open">
+            {/* <SidebarTrigger className="open">
               <Menu className="text-neutral-black !size-6" />
-            </SidebarTrigger>
+            </SidebarTrigger> */}
 
             <Image
               src={"/assets/logo.png"}

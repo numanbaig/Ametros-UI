@@ -36,6 +36,12 @@ export const AuthFormSchema = (type: string) => {
 
   const loginSchema = commonSchema;
 
+  const forgotPasswordSchema = z.object({
+    email: z.string().email("Invalid email address"),
+  });
+
   // Combine schemas based on type
-  return type === "register" ? registerSchema : loginSchema;
+  if (type === "register") return registerSchema;
+  if (type === "forgot-password") return forgotPasswordSchema;
+  return loginSchema;
 };
