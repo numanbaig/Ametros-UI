@@ -13,7 +13,7 @@ const DashboardAuthHeader = ({ type }: { type: string }) => {
       />
       <Typography
         variant="h2"
-        className="font-bold text-primary-blue capitalize"
+        className="font-bold text-primary-400 capitalize"
       >
         {type.includes("-") ? type.replace("-", " ") : type}
         <span>{type === AuthType.FORGET_PASSWORD && "?"}</span>
