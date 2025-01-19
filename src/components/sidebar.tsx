@@ -110,22 +110,24 @@ const DashboardSidebar = ({
                 ) : (
                   <SidebarMenuItem className="p-0 m-0">
                     <SidebarMenuButton
-                      className=" !p-0 !m-0 !w-auto"
+                      className="!w-full !py-5"
                       tooltip={item.title}
                     >
                       <Link
                         href={item.url ? item.url : "/"}
                         className={cn(
-                          "flex items-center gap-[5px] text-neutral-black",
+                          "flex items-center gap-[5px] text-neutral-black w-full !py-5 !px-3 rounded-[4px]",
                           {
-                            "text-primary-blue": isActiveLink(item.url),
+                            "bg-primary-blue": isActiveLink(item.url),
                             "gap-x-6": !open,
                           }
                         )}
                       >
-                        <div className={cn("relative !size-6 shrink-0 ")}>
-                          {item.icon && <item.icon className="size-6" />}
-                        </div>
+                        {!open && (
+                          <div className={cn("relative !size-6 shrink-0 ")}>
+                            {item.icon && <item.icon className="size-6" />}
+                          </div>
+                        )}
                         {open && (
                           <Typography
                             variant="body2"

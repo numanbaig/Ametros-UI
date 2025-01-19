@@ -23,7 +23,10 @@ const DashbaordFilterTabs = ({
 
   return (
     <div className="flex items-center gap-x-2">
-      <Typography variant="h3" className="font-[300] lg:block hidden leading-9">
+      <Typography
+        variant="h3"
+        className="lg:block hidden font-[700] text-[28px] leading-10 text-[#2BBECF]"
+      >
         {title ? title : "Assessment"}
       </Typography>
       <div className="flex items-center gap-x-2">
@@ -32,9 +35,9 @@ const DashbaordFilterTabs = ({
             key={index}
             onClick={() => setActiveTabIndex(index)}
             className={cn(
-              "px-4 py-2 rounded-[37px] text-neutral-black",
+              "px-4 py-2 rounded-[8px] text-[#1D818C]",
               activeTabIndex === index
-                ? "bg-primary-blueLight text-primary-darkCyan"
+                ? "bg-primary-blue text-primary-darkCyan"
                 : "border border-[#B8B8B8] bg-transparent"
             )}
           >

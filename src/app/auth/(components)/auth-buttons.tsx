@@ -11,7 +11,7 @@ const DashboardAuthButtons = () => {
         </DashboardCustomButton>
       </Link>
       <Link href={"/auth/register"}>
-        <DashboardCustomButton className=" w-[90px] h-[40px] sm:w-[119px] sm:h-[48px] bg-transparent border border-[#2BBECF] text-[16px] !font-bold">
+        <DashboardCustomButton className=" w-[90px] h-[40px] sm:w-[119px] sm:h-[48px] bg-transparent border border-[#2BBECF] text-[16px] !font-bold text-primary-blueLight">
           Sign Up
         </DashboardCustomButton>
       </Link>

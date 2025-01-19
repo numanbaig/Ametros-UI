@@ -30,7 +30,7 @@ export default function DashboardLayout({
               <div className="space-y-7 w-full">
                 <div className="flex justify-between items-center sm:flex-row flex-col  sm:gap-0 gap-y-3 w-full">
                   <DashbaordFilterTabs />
-                  <DashboardCustomButton icon="/assets/icons/plus.svg">
+                  <DashboardCustomButton>
                     Create Assessment
                   </DashboardCustomButton>
                 </div>

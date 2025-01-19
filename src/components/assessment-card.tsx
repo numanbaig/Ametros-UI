@@ -27,10 +27,10 @@ const DashboardAssessmentCard = () => {
               {assessment.type}
             </Typography>
             <div className="flex items-center gap-4">
-              <Button className="!p-0 bg-transparent">
+              <Button className="border w-10 h-8 border-[#FF7B77] bg-transparent">
                 <ImageComponent src="/assets/icons/delete.svg" alt="delete" />
               </Button>
-              <Button className="!p-0 bg-transparent">
+              <Button className="border w-10 h-8 border-[#19A3B3] bg-transparent">
                 <ImageComponent src="/assets/icons/edit.svg" alt="edit" />
               </Button>
             </div>

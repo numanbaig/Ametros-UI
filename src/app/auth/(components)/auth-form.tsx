@@ -103,7 +103,7 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
                   Login
                 </DashboardCustomButton>
                 <Link href={"/auth/register"} className="w-full shrink">
-                  <DashboardCustomButton className="h-[48px] w-full bg-transparent border border-[#2BBECF] text-[16px] !font-bold">
+                  <DashboardCustomButton className="h-[48px] w-full bg-transparent border border-[#2BBECF] text-primary-blueLight text-[16px] !font-bold">
                     Sign Up
                   </DashboardCustomButton>
                 </Link>

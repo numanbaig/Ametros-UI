@@ -14,7 +14,7 @@ const DashboardChat = () => {
         <div className="relative p-6 flex justify-center items-center bg-neutral-white shadow-custom rounded-[32px] w-[309px] h-16">
           <Typography
             variant="body1"
-            className="text-[18px] leading-[21px] font-bold text-primary-darkCyan"
+            className="text-[20px] leading-[21px] font-bold text-primary-blueLight  "
           >
             Do you need help?
           </Typography>

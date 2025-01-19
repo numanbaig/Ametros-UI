@@ -53,7 +53,7 @@ const DashboardUserProfileDrawer = () => {
               </Typography>
             </Link>
           </DropdownMenuLabel>
-          <Button className="rounded-[32px] px-8 gap-[10px] bg-primary-blue w-[151px] h-12 hover:bg-primary-blue">
+          <Button className="rounded-[32px] px-8 gap-[10px] bg-primary-blueLight w-[151px] h-12">
             <ImageComponent src="/assets/icons/logout.svg" alt="logout" />
             <Typography
               variant="body1"
