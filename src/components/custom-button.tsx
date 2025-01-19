@@ -16,7 +16,7 @@ const DashboardCustomButton = ({
   return (
     <Button
       className={cn(
-        "space-x-[10px] px-8 bg-primary-blueLight w-[247px] h-12 rounded-[8px] text-[16px] font-[700] text-white",
+        "space-x-[10px] px-4 py-2 bg-primary-600 w-[247px] h-12 rounded-[8px] text-[16px] font-[700] text-white",
         className
       )}
     >

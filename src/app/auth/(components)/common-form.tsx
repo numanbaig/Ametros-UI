@@ -17,6 +17,7 @@ interface CommonAuthFormProps {
   type?: string;
   name: string;
   label: string;
+  placeholder?: string;
   form: {
     control: any; // Replace 'any' with the appropriate type for your form control
   };
@@ -27,6 +28,7 @@ const CommonAuthForm: React.FC<CommonAuthFormProps> = ({
   name,
   label,
   form,
+  placeholder,
 }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   return (
@@ -50,9 +52,10 @@ const CommonAuthForm: React.FC<CommonAuthFormProps> = ({
                     ? "text"
                     : type
                 }
-                className="w-full border border-[#D8DAD9] pl-4 h-12 rounded-[8px] shadow-none placeholder:text-light-200 outline-none ring-offset-transparent focus:ring-transparent focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0  text-backgroundGrayDark font-[family-name:var(--font-poppins-semibold)] text-[16px] font-normal text-[#545253] leading-5"
+                className="w-full border border-[#D8DAD9] pl-4 h-12 rounded-[8px] shadow-none placeholder:text-light-200 outline-none ring-offset-transparent focus:ring-transparent focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0  text-backgroundGrayDark font-[family-name:var(--font-poppins-semibold)] text-[16px] font-normal text-customGray-400 leading-5"
                 {...field}
                 autoComplete="off"
+                placeholder={placeholder && placeholder}
               />
             </FormControl>
 

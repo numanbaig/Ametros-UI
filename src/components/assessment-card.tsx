@@ -18,19 +18,19 @@ const DashboardAssessmentCard = () => {
             <Typography
               variant="body3"
               className={cn(
-                "text-neutral-black py-0.5 px-2 bg-primary-lightGreen rounded-[37px]",
+                "text-neutral-black py-0.5 px-2 bg-neutral-cream rounded-[37px]",
                 {
-                  "bg-primary-teal": assessment.type === AssessmentType.Full,
+                  "bg-secondary-50": assessment.type === AssessmentType.Full,
                 }
               )}
             >
               {assessment.type}
             </Typography>
             <div className="flex items-center gap-4">
-              <Button className="border w-10 h-8 border-[#FF7B77] bg-transparent">
+              <Button className="border w-10 h-8 border-neutral-lightRed bg-transparent">
                 <ImageComponent src="/assets/icons/delete.svg" alt="delete" />
               </Button>
-              <Button className="border w-10 h-8 border-[#19A3B3] bg-transparent">
+              <Button className="border w-10 h-8 border-primary-600 bg-transparent">
                 <ImageComponent src="/assets/icons/edit.svg" alt="edit" />
               </Button>
             </div>

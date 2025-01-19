@@ -26,7 +26,7 @@ const PasswordRequirements = () => {
             </span>
             <Typography
               variant="body2"
-              className="leading-[16px] text-[#545253]"
+              className="leading-[16px] text-customGray-500"
             >
               {value}
             </Typography>

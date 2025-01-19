@@ -64,13 +64,14 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
               type === AuthType.REGISTER,
           })}
         >
-          {formInputsData.map(({ id, name, type, label }) => {
+          {formInputsData.map(({ id, name, type, label, placeholder }) => {
             return (
               <CommonAuthForm
                 key={id}
                 name={name}
                 type={type}
                 label={label}
+                placeholder={placeholder}
                 form={form}
               />
             );
@@ -80,12 +81,16 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
             <>
               <div className="flex justify-between items-center w-full">
                 <div className="flex items-center gap-x-2">
-                  <Checkbox id="terms" color="#1AA3B3" />
+                  <Checkbox
+                    id="terms"
+                    // color="#1AA3B3"
+                    className="text-white size-6 rounded-sm p-1"
+                  />
                   <label
                     htmlFor="terms"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    <Typography variant="body1" className="text-[#171616]">
+                    <Typography variant="body1" className="text-neutral-black">
                       {" "}
                       Remember me
                     </Typography>
@@ -93,17 +98,17 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
                 </div>
                 <Link
                   href="/auth/forgot-password"
-                  className="text-primary-blue underline"
+                  className="text-primary-600 underline"
                 >
                   <Typography variant="body1">Forgot Password?</Typography>
                 </Link>
               </div>
               <div className="flex justify-center items-center gap-x-2 w-full">
-                <DashboardCustomButton className="h-[48px] w-full text-[16px] !font-bold shrink">
+                <DashboardCustomButton className="h-[40px] w-full text-[16px] !font-bold shrink">
                   Login
                 </DashboardCustomButton>
                 <Link href={"/auth/register"} className="w-full shrink">
-                  <DashboardCustomButton className="h-[48px] w-full bg-transparent border border-[#2BBECF] text-primary-blueLight text-[16px] !font-bold">
+                  <DashboardCustomButton className="h-[40px] w-full bg-transparent border border-[#2BBECF] text-primary-blueLight text-[16px] !font-bold">
                     Sign Up
                   </DashboardCustomButton>
                 </Link>
@@ -128,7 +133,7 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
                 "w-full sm:w-[500px] mx-auto": type === AuthType.REGISTER,
               })}
             >
-              <DashboardCustomButton className="h-[48px] w-full bg-primary-blueLight text-[16px] !font-bold">
+              <DashboardCustomButton className="h-[40px] w-full  text-[16px] !font-bold">
                 Submit
               </DashboardCustomButton>
             </div>

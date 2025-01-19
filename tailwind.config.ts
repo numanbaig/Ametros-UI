@@ -19,26 +19,30 @@ export default {
       },
       colors: {
         neutral: {
-          black: "#212121",
-          darkGray: "#838B8D",
-          gray: "#80979F",
-          lightGray: "#AEB6B8",
-          grayBlue: "#B2C8D3",
-          silver: "#C6D3D9",
-          white: "#FFFFFF",
+          black: "#171616",
+          cream: "#FFF6DA",
+          lightRed: "#FF7B77",
         },
         primary: {
-          blue: "#DAFBFF",
-          blueLight: "#19A3B3",
-          darkBlue: "#001B36",
-          darkCyan: "#0D444A",
-          orange: "#C96026",
-          lightGreen: "#FFF6DA",
-          yellow: "#FFDA6B",
-          beige: "#D3CCC6",
-          teal: "#E5F9F5",
+          100: "#DAFBFF",
+          400: "#2BBECF",
+          600: "#19A3B3",
+          800: "#1D818C",
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        customGray: {
+          100: "#F3F4F3",
+          200: "#D8DAD9",
+          300: "#B8B8B8",
+          400: "#545253",
+          500: "#545253",
+        },
+        secondary: {
+          50: "#E5F9F5",
+          400: "#00CB9C",
+          // DEFAULT: "hsl(var(--secondary))",
+          // foreground: "hsl(var(--secondary-foreground))",
         },
         success: {
           green: "#009262",
@@ -60,10 +64,6 @@ export default {
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",

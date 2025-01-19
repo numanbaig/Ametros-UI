@@ -11,7 +11,7 @@ const DashboardChat = () => {
   return (
     <div className="fixed bottom-7 right-4 sm:!right-8 w-full flex flex-col items-end gap-[18px] z-50">
       {popUp && (
-        <div className="relative p-6 flex justify-center items-center bg-neutral-white shadow-custom rounded-[32px] w-[309px] h-16">
+        <div className="relative p-6 flex justify-center items-center bg-white shadow-custom rounded-[32px] w-[309px] h-16 z-[9999]">
           <Typography
             variant="body1"
             className="text-[20px] leading-[21px] font-bold text-primary-blueLight  "

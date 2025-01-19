@@ -37,8 +37,8 @@ const DashbaordFilterTabs = ({
             className={cn(
               "px-4 py-2 rounded-[8px] text-[#1D818C]",
               activeTabIndex === index
-                ? "bg-primary-blue text-primary-darkCyan"
-                : "border border-[#B8B8B8] bg-transparent"
+                ? "bg-primary-100 text-primary-darkCyan"
+                : "border border-customGray-300 bg-transparent"
             )}
           >
             <Typography variant="body3" className={cn("text-[14px]")}>

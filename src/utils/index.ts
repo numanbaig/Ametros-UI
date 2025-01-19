@@ -7,6 +7,7 @@ interface FormField {
   name: string;
   type: FormFieldType;
   label: string;
+  placeholder?: string;
 }
 
 export const registerFormData: FormField[] = [
@@ -31,6 +32,7 @@ export const registerFormData: FormField[] = [
   {
     id: 4,
     name: "email",
+    placeholder: "username@email.com",
     type: "text",
     label: "Email",
   },
@@ -52,6 +54,7 @@ export const LoginFormData: FormField[] = [
   {
     id: 1,
     name: "email",
+    placeholder: "username@email.com",
     type: "text",
     label: "Email",
   },
@@ -67,6 +70,7 @@ export const ForgotPasswordFormData: FormField[] = [
   {
     id: 1,
     name: "email",
+    placeholder: "username@email.com",
     type: "text",
     label: "Email",
   },

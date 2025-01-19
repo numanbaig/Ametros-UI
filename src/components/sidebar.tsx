@@ -118,7 +118,7 @@ const DashboardSidebar = ({
                         className={cn(
                           "flex items-center gap-[5px] text-neutral-black w-full !py-5 !px-3 rounded-[4px]",
                           {
-                            "bg-primary-blue": isActiveLink(item.url),
+                            "bg-primary-100": isActiveLink(item.url),
                             "gap-x-6": !open,
                           }
                         )}

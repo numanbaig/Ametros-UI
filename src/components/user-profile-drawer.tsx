@@ -31,7 +31,7 @@ const DashboardUserProfileDrawer = () => {
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className=" mt-4 mr-10 w-52 h-44 rounded-[16px] p-6 border border-[#C9D6DF]/50 bg-neutral-white shadow-custom">
+      <DropdownMenuContent className=" mt-4 mr-10 w-52 h-44 rounded-[16px] p-6 border border-customGray-100 bg-neutral-white shadow-custom z-[99999] bg-white">
         <div className="relative gap-6 flex flex-col justify-center items-center ">
           {/* <div
             className="absolute -top-8 bg-red-500 w-[56px] h-8 rounded-t !z-50"
@@ -53,7 +53,7 @@ const DashboardUserProfileDrawer = () => {
               </Typography>
             </Link>
           </DropdownMenuLabel>
-          <Button className="rounded-[32px] px-8 gap-[10px] bg-primary-blueLight w-[151px] h-12">
+          <Button className="rounded-[8px] px-8 gap-[10px] bg-primary-600 w-[151px] h-12">
             <ImageComponent src="/assets/icons/logout.svg" alt="logout" />
             <Typography
               variant="body1"
