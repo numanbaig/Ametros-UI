@@ -10,7 +10,7 @@ const DashbaordAssessmentHeader = () => {
       <div className="flex justify-between items-center sm:flex-row flex-col  sm:gap-0 gap-y-3 w-full">
         <Typography
           variant="h3"
-          className="lg:block hidden font-[700] text-[28px] leading-10 text-[#2BBECF]"
+          className="xs:block hidden font-[700] text-[28px] leading-10 text-[#2BBECF]"
         >
           {"Assessment"}
         </Typography>
@@ -18,9 +18,9 @@ const DashbaordAssessmentHeader = () => {
           Create Assessment
         </DashboardCustomButton>
       </div>
-      <div className="flex justify-between items-center sm:gap-0 gap-y-3 w-full">
+      <div className="flex justify-between items-center gap-3 w-full">
         <DashbaordFilterTabs />
-        <div className="md:block hidden">
+        <div className="lg:flex hidden lg:w-full justify-end">
           <ChangeViewTabs />
         </div>
       </div>

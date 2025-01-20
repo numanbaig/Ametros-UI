@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Typography } from "./typography";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import Search from "./search";
 
 const tabsArray = [
   { name: "Drafts" },
@@ -16,7 +17,7 @@ const DashbaordFilterTabs = ({ tabs }: { tabs?: [{ name: string }] }) => {
   const tabsData = tabs ? tabs : tabsArray;
 
   return (
-    <div className="flex items-center gap-x-2">
+    <div className="flex sm:justify-start justify-between items-center gap-x-2 w-full">
       <div className="flex items-center gap-x-2">
         {tabsData.map((tab, index) => (
           <Button
@@ -35,6 +36,7 @@ const DashbaordFilterTabs = ({ tabs }: { tabs?: [{ name: string }] }) => {
           </Button>
         ))}
       </div>
+      <Search />
     </div>
   );
 };

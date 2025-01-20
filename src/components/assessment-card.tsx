@@ -44,6 +44,7 @@ const DashboardAssessmentCard = () => {
               </Button>
             </div>
           </div>
+          <Separator className="w-full bg-[#C9D6DF] h-[1px]" />
           <div className="text-center">
             <Typography
               variant="h5"
@@ -53,7 +54,6 @@ const DashboardAssessmentCard = () => {
             </Typography>
           </div>
           <div className="mt-6 space-y-4">
-            <Separator className="w-full bg-[#C9D6DF] h-[1px]" />
             <div className="grid grid-cols-2 w-full gap-6">
               {assessment.details.map(({ title, value }, index) => (
                 <div className="space-y-1" key={index}>

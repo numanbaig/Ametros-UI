@@ -34,12 +34,12 @@ const DashboardAssistant = ({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="mr-7 sm:mr-9 mb-6 sm:w-[431px] w-[90vw] ml-auto rounded-[16px] shadow-assitant border-none p-0 overflow-hidden flex flex-col">
+      <PopoverContent className="mr-7 sm:mr-9 mb-6 w-auto ml-auto rounded-[16px] shadow-assitant border border-customGray-200/50 p-0 overflow-hidden flex flex-col">
         <AssistantHeader setOpenChatBox={setOpenChatBox} />
-        <div className="relative p-4 min-h-[333px] max-h-[687px]">
-          <div className="flex flex-col flex-1 w-full">
+        <div className="relative p-4 h-auto">
+          <div className="flex flex-col justify-between flex-1 w-full">
             <AssistantContent />
-            <div className="w-full absolute bottom-4 left-0 z-[999999] flex justify-center items-center">
+            <div className="w-full flex justify-center items-center">
               <AssistantInput message={message} setMessage={setMessage} />
             </div>
           </div>
