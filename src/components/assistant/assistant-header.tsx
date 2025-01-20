@@ -9,13 +9,20 @@ const AssistantHeader = ({
   setOpenChatBox: (value: boolean) => void;
 }) => {
   return (
-    <div className="flex justify-between items-center py-2 px-8 w-full bg-primary-blueLight h-16">
-      <Typography
-        variant="h5"
-        className="font-bold leading-6 text-primary-darkCyan"
-      >
-        Assistant
-      </Typography>
+    <div className="flex justify-between items-center py-2 px-4 w-full bg-primary-blueLight h-16">
+      <div className="flex justify-center items-center gap-x-2">
+        <ImageComponent
+          className="size-8"
+          src="/assets/icons/assisstant-icon.svg"
+          alt="assisstant-icon"
+        />
+        <Typography
+          variant="h5"
+          className="text-[16px] leading-6 text-primary-800"
+        >
+          Ametros Assistant
+        </Typography>
+      </div>
       <Button
         className=" !p-0 !bg-transparent"
         onClick={() => setOpenChatBox(false)}

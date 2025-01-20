@@ -16,6 +16,7 @@ export default {
       },
       boxShadow: {
         custom: "0 4px 16px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05)",
+        assitant: "0px 4px 8px 0px #ABBED1",
       },
       colors: {
         neutral: {
@@ -24,6 +25,7 @@ export default {
           lightRed: "#FF7B77",
         },
         primary: {
+          50: "#F8FEFF",
           100: "#DAFBFF",
           400: "#2BBECF",
           600: "#19A3B3",
@@ -34,7 +36,7 @@ export default {
         customGray: {
           100: "#F3F4F3",
           200: "#D8DAD9",
-          300: "#B8B8B8",
+          300: "#D3CCC6",
           400: "#545253",
           500: "#545253",
         },

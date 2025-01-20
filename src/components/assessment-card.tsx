@@ -1,3 +1,5 @@
+"use client";
+
 import { assessmentData, AssessmentType } from "@/constants";
 import React from "react";
 import { Typography } from "./typography";
@@ -5,10 +7,17 @@ import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import ImageComponent from "./image-component";
 import { Separator } from "@radix-ui/react-separator";
+import { useViewContext } from "@/context/view-context";
 
 const DashboardAssessmentCard = () => {
+  const { isGridView } = useViewContext();
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-3 sm:grid-cols-2 gap-6 w-full">
+    <div
+      className={cn("grid  gap-6 w-full", {
+        "grid grid-cols-1 xl:grid-cols-3 sm:grid-cols-2": isGridView,
+        "md:grid-cols-2": !isGridView,
+      })}
+    >
       {assessmentData.map((assessment) => (
         <div
           className="flex flex-col gap-[16px] shadow-custom p-6 rounded-[16px]"
@@ -38,7 +47,7 @@ const DashboardAssessmentCard = () => {
           <div className="text-center">
             <Typography
               variant="h5"
-              className="leading-[25px] text-neutral-black"
+              className="leading-[25px] text-[18px] font-bold text-neutral-black"
             >
               {assessment.title}
             </Typography>

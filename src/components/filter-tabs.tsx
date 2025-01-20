@@ -11,24 +11,12 @@ const tabsArray = [
   { name: "Historical" },
 ];
 
-const DashbaordFilterTabs = ({
-  title,
-  tabs,
-}: {
-  title?: string;
-  tabs?: [{ name: string }];
-}) => {
+const DashbaordFilterTabs = ({ tabs }: { tabs?: [{ name: string }] }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const tabsData = tabs ? tabs : tabsArray;
 
   return (
     <div className="flex items-center gap-x-2">
-      <Typography
-        variant="h3"
-        className="lg:block hidden font-[700] text-[28px] leading-10 text-[#2BBECF]"
-      >
-        {title ? title : "Assessment"}
-      </Typography>
       <div className="flex items-center gap-x-2">
         {tabsData.map((tab, index) => (
           <Button
@@ -37,7 +25,7 @@ const DashbaordFilterTabs = ({
             className={cn(
               "px-4 py-2 rounded-[8px] text-[#1D818C]",
               activeTabIndex === index
-                ? "bg-primary-100 text-primary-darkCyan"
+                ? "bg-primary-100 "
                 : "border border-customGray-300 bg-transparent"
             )}
           >

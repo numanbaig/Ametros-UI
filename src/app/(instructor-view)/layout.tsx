@@ -5,8 +5,8 @@ import Sidebar from "@/components/sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import DashboardHeader from "@/components/header";
 import DashboardChat from "@/components/assistant/chat-box";
-import DashbaordFilterTabs from "@/components/filter-tabs";
-import DashboardCustomButton from "@/components/custom-button";
+import DashbaordAssessmentHeader from "@/components/assessment-header";
+import { ViewProvider } from "@/context/view-context";
 
 export const metadata: Metadata = {
   title: "Dashbaord",
@@ -26,17 +26,14 @@ export default function DashboardLayout({
         <SidebarInset>
           <div className="flex h-screen flex-col">
             <DashboardHeader />
-            <main className="xxl:w-[85%] w-[90%] mx-auto mt-20">
+            <section className="xxl:w-[85%] w-[90%] mx-auto pt-20 pb-10">
               <div className="space-y-7 w-full">
-                <div className="flex justify-between items-center sm:flex-row flex-col  sm:gap-0 gap-y-3 w-full">
-                  <DashbaordFilterTabs />
-                  <DashboardCustomButton>
-                    Create Assessment
-                  </DashboardCustomButton>
-                </div>
-                {children}
+                <ViewProvider>
+                  <DashbaordAssessmentHeader />
+                  {children}
+                </ViewProvider>
               </div>
-            </main>
+            </section>
           </div>
         </SidebarInset>
       </SidebarProvider>

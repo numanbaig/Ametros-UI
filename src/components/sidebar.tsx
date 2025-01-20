@@ -24,12 +24,13 @@ import Link from "next/link";
 import { Typography } from "./typography";
 import { sidebarData } from "@/constants";
 import { usePathname } from "next/navigation";
+import { X } from "lucide-react";
 
 const DashboardSidebar = ({
   ...props
 }: React.ComponentProps<typeof Sidebar>) => {
   const pathname = usePathname();
-  const { open, setOpen } = useSidebar();
+  const { open, setOpen, isMobile, setOpenMobile } = useSidebar();
 
   const isActiveLink = (itemUrl: string = "/"): boolean => {
     if (itemUrl === "/") {
@@ -47,10 +48,8 @@ const DashboardSidebar = ({
     const handleResize = () => {
       const width = window.innerWidth;
       setWindowWidth(width);
-      if (width <= 980) {
+      if (width <= 980 && width >= 768) {
         setOpen(false);
-      } else {
-        setOpen(true);
       }
     };
 
@@ -59,11 +58,10 @@ const DashboardSidebar = ({
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty dependency array since we want this to run only once
+  }, [setOpen]);
 
-  // Separate effect to handle sidebar state based on window width
   React.useEffect(() => {
-    if (windowWidth <= 980) {
+    if (windowWidth <= 980 && windowWidth >= 768) {
       setOpen(false);
     }
   }, [windowWidth, setOpen]);
@@ -76,7 +74,11 @@ const DashboardSidebar = ({
         })}
       >
         <SidebarHeader className="px-0">
-          <div className="flex justify-center items-center gap-x-6">
+          <div
+            className={cn("flex justify-center items-center gap-x-6", {
+              "justify-between": isMobile,
+            })}
+          >
             <div
               className={cn("relative w-[143.79px] h-[37.88px]", {
                 "h-9 w-9": !open,
@@ -90,11 +92,15 @@ const DashboardSidebar = ({
                 className="w-full"
               />
             </div>
-            <SidebarTrigger
-              className={cn("open", {
-                hidden: !open,
-              })}
-            ></SidebarTrigger>
+            {isMobile ? (
+              <X onClick={() => setOpenMobile(false)} />
+            ) : (
+              <SidebarTrigger
+                className={cn("open", {
+                  hidden: !open,
+                })}
+              ></SidebarTrigger>
+            )}
           </div>
         </SidebarHeader>
         <SidebarGroup className="p-0">

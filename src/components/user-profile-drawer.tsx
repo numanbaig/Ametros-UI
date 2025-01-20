@@ -31,10 +31,10 @@ const DashboardUserProfileDrawer = () => {
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className=" mt-4 mr-10 w-52 h-44 rounded-[16px] p-6 border border-customGray-100 bg-neutral-white shadow-custom z-[99999] bg-white">
+      <DropdownMenuContent className="reltive mt-4 mr-10 w-52 h-44 rounded-[16px] p-6 border border-customGray-100 bg-neutral-white shadow-custom z-[99999] bg-white before:absolute before:h-8 before:w-8 before:bg-red-500 before:top-0 before:right-14">
         <div className="relative gap-6 flex flex-col justify-center items-center ">
           {/* <div
-            className="absolute -top-8 bg-red-500 w-[56px] h-8 rounded-t !z-50"
+            className="absolute -top-8 bg-red-500 w-[56px] h-8 rounded-t "
             style={{ clipPath: "polygon(50% 0%, 1% 45%, 100% 44%)" }}
           /> */}
           <DropdownMenuLabel className="self-start">

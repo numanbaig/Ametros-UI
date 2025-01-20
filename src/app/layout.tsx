@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Lato } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const lato = Lato({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700", "900"],
-  variable: "--font-lato",
-  display: "swap",
+  variable: "--font-poppins",
+  // display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({
       <body
         className={cn(
           `font-[family-name:var(--font-lato)] antialiased`,
-          lato.variable
+          poppins.variable
         )}
       >
         <main className="">{children}</main>
