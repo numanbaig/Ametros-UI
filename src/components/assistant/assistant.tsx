@@ -34,9 +34,9 @@ const DashboardAssistant = ({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="mr-7 sm:mr-9 mb-6 w-auto ml-auto rounded-[16px] shadow-assitant border border-customGray-200/50 p-0 overflow-hidden flex flex-col">
+      <PopoverContent className="mr-4 sm:mr-9 mb-6 w-[92vw]  sm:w-auto sm:ml-auto rounded-[16px] shadow-assitant border border-customGray-200/50  flex flex-col">
         <AssistantHeader setOpenChatBox={setOpenChatBox} />
-        <div className="relative p-4 h-auto">
+        <div className="relative sm:p-4 h-auto">
           <div className="flex flex-col justify-between flex-1 w-full">
             <AssistantContent />
             <div className="w-full flex justify-center items-center">

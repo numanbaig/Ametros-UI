@@ -27,6 +27,7 @@ export function middleware(request: NextRequest) {
     "/auth/login",
     "/auth/register",
     "/auth/forgot-password",
+    "/auth/getting-started",
   ];
 
   const isPublicRoute = publicRoutes.includes(pathname);

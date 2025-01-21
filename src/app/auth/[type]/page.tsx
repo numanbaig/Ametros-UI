@@ -4,6 +4,7 @@ import DashboardAuthHeader from "../(components)/auth-header";
 import { AuthType } from "@/types";
 import DashboardAuthForm from "../(components)/auth-form";
 import { cn } from "@/lib/utils";
+import DashboardCustomButton from "@/components/custom-button";
 
 const DashboardAuthPage = async ({
   params,
@@ -30,7 +31,16 @@ const DashboardAuthPage = async ({
           "w-[95%] lg:!w-[824px]": type === AuthType.REGISTER,
         })}
       >
-        <DashboardAuthForm type={formType} />
+        {type === AuthType.GETTING_STARTED ? (
+          <div className="space-y-6">
+            <DashboardCustomButton>I am new to Ametros</DashboardCustomButton>
+            <DashboardCustomButton>
+              I already have an Ametros account
+            </DashboardCustomButton>
+          </div>
+        ) : (
+          <DashboardAuthForm type={formType} />
+        )}
       </div>
     </div>
   );

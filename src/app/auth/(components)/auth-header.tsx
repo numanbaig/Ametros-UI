@@ -11,13 +11,15 @@ const DashboardAuthHeader = ({ type }: { type: string }) => {
         src="/assets/logo-mobile.png"
         alt="auth-logo"
       />
-      <Typography
-        variant="h2"
-        className="font-bold text-primary-400 capitalize"
-      >
-        {type.includes("-") ? type.replace("-", " ") : type}
-        <span>{type === AuthType.FORGET_PASSWORD && "?"}</span>
-      </Typography>
+      {type !== AuthType.GETTING_STARTED && (
+        <Typography
+          variant="h2"
+          className="font-bold text-primary-400 capitalize"
+        >
+          {type.includes("-") ? type.replace("-", " ") : type}
+          <span>{type === AuthType.FORGET_PASSWORD && "?"}</span>
+        </Typography>
+      )}
 
       {type === AuthType.FORGET_PASSWORD && (
         <Typography

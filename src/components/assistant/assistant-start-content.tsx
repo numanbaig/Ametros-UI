@@ -29,20 +29,17 @@ const AssistantStartContent = ({
       <div className="space-y-4">
         <Button
           className="p-[10px] h-[68px] w-full flex items-center justify-start gap-[10px] rounded-[8px] bg-primary-50"
-          onClick={() => setAssessmentSelectionScreen("assessment")}
+          onClick={() => {
+            setAssessmentSelectionScreen("assessment");
+            setChatType({ type: "Create Assessment", builder: "" });
+          }}
         >
           <ImageComponent
             // className="w-[14px] h-[18px]"
             src="/assets/icons/paper-tick.svg"
             alt="chatbot-icons"
           />
-          <Typography
-            variant="body1"
-            className="text-primary-800"
-            onClick={() => {
-              setChatType({ type: "Create Assessment", builder: "" });
-            }}
-          >
+          <Typography variant="body1" className="text-primary-800">
             Create Assessment
           </Typography>
         </Button>

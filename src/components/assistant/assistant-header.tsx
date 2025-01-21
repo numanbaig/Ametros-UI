@@ -9,7 +9,7 @@ const AssistantHeader = ({
   setOpenChatBox: (value: boolean) => void;
 }) => {
   return (
-    <div className="flex justify-between items-center py-2 px-4 w-full bg-primary-blueLight h-16">
+    <div className="flex justify-between items-center py-2 sm:px-4 w-full bg-primary-blueLight h-16">
       <div className="flex justify-center items-center gap-x-2">
         <ImageComponent
           className="size-8"

@@ -20,7 +20,7 @@ const AssistantContent = () => {
     switch (currentScreen) {
       case "start":
         return (
-          <div className="w-[431px]">
+          <div className="w-full sm:w-[431px] overflow-x-hidden">
             <AssistantStartContent
               setAssessmentSelectionScreen={() =>
                 setCurrentScreen("assessment")
@@ -31,7 +31,7 @@ const AssistantContent = () => {
         );
       case "assessment":
         return (
-          <div className="mb-[137px] w-[533px]">
+          <div className="sm:mb-[137px] mb-[60px] w-full sm:w-[533px] overflow-x-hidden">
             <AssessmentSelectionScreen
               setAssessmentSelectionScreen={() => setCurrentScreen("main")}
               chatType={chatType.type}
@@ -41,7 +41,7 @@ const AssistantContent = () => {
         );
       case "main":
         return (
-          <div className="mb-[137px] w-[533px]">
+          <div className="sm:mb-[137px] mb-[60px] w-full sm:!w-[533px] overflow-x-hidden">
             <AssistantMainScreen chatType={chatType} />
           </div>
         );
@@ -50,7 +50,11 @@ const AssistantContent = () => {
     }
   };
 
-  return <div className="!min-h-full">{renderContent()}</div>;
+  return (
+    <div className="!min-h-full sm:max-h-[600px] max-h-[50vh] overflow-auto remove-scrollbar">
+      {renderContent()}
+    </div>
+  );
 };
 
 export default AssistantContent;

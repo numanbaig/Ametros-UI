@@ -48,7 +48,7 @@ const AssessmentSelectionScreen = ({
           First, select the type:
         </span>
       </Typography>
-      <div className="flex justify-center items-center gap-x-[16px]">
+      <div className="flex sm:flex-row flex-col justify-center items-center gap-[16px]">
         {selectAssessmentData.map(({ title, id, description }) => (
           <Button
             className="w-full h-[197px] p-4 flex flex-col justify-center items-center gap-4 bg-gray-100 rounded-[8px]"
