@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import ImageComponent from "../image-component";
 import { Typography } from "../typography";
 
-const AssistantMainScreen = () => {
+const AssistantMainScreen = ({ chatType }: { chatType: any }) => {
+  console.log(chatType);
   return (
     <div className="space-y-4">
       <div className="flex items-start gap-x-2 bg-customGray-100 rounded-[8px] p-3 w-fit">
@@ -15,7 +17,20 @@ const AssistantMainScreen = () => {
           variant="body1"
           className="text-[14px] leading-[21px] text-neutral-black"
         >
-          Create assessment
+          {chatType.type}
+        </Typography>
+      </div>
+      <div className="flex items-start gap-x-2 bg-customGray-100 rounded-[8px] p-3 w-fit">
+        <ImageComponent
+          className="size-4"
+          src="/assets/icons/assisstant-icon.svg"
+          alt="assisstant-icon"
+        />
+        <Typography
+          variant="body1"
+          className="text-[14px] leading-[21px] text-neutral-black"
+        >
+          {chatType.builder}
         </Typography>
       </div>
       <div className="flex justify-center items-center w-full">

@@ -1,7 +1,22 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { Typography } from "../typography";
+import { Button } from "../ui/button";
 
-const AssessmentSelectionScreen = () => {
+interface ChatType {
+  type: string;
+  builder: string;
+}
+
+const AssessmentSelectionScreen = ({
+  setAssessmentSelectionScreen,
+  chatType,
+  setChatType,
+}: {
+  setAssessmentSelectionScreen: (value: string) => void;
+  chatType: any;
+  setChatType: (chatType: ChatType) => void;
+}) => {
   const selectAssessmentData = [
     {
       id: 1,
@@ -22,7 +37,7 @@ const AssessmentSelectionScreen = () => {
         variant="body1"
         className="font-bold text-[18px] text-secondary-400"
       >
-        Create assessment
+        {chatType}
       </Typography>
       <Typography
         variant="body1"
@@ -33,11 +48,15 @@ const AssessmentSelectionScreen = () => {
           First, select the type:
         </span>
       </Typography>
-      <div className="flex justify-center items-center  gap-x-[16px]">
+      <div className="flex justify-center items-center gap-x-[16px]">
         {selectAssessmentData.map(({ title, id, description }) => (
-          <div
+          <Button
             className="w-full h-[197px] p-4 flex flex-col justify-center items-center gap-4 bg-gray-100 rounded-[8px]"
             key={id}
+            onClick={() => {
+              setAssessmentSelectionScreen("main");
+              setChatType({ type: chatType, builder: title });
+            }}
           >
             <Typography
               variant="body1"
@@ -47,13 +66,19 @@ const AssessmentSelectionScreen = () => {
             </Typography>
             <Typography
               variant="body2"
-              className="leading-[21px] text-customGray-500 text-center"
+              className="leading-[21px] text-customGray-500 text-center text-wrap"
             >
               {description}
             </Typography>
-          </div>
+          </Button>
         ))}
       </div>
+      <Button
+        className="mt-4 w-full h-[50px] bg-primary-500 text-white rounded-[8px]"
+        onClick={() => setAssessmentSelectionScreen("main")}
+      >
+        Go to Main Screen
+      </Button>
     </div>
   );
 };
