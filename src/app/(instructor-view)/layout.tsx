@@ -26,7 +26,7 @@ export default function DashboardLayout({
         <SidebarInset>
           <div className="flex h-screen flex-col">
             <DashboardHeader />
-            <section className="relative xxl:w-[85%] w-[90%] mx-auto pt-20 pb-10">
+            <section className="relative xxxl:w-[1320px] xxl:w-[85%] w-[90%] mx-auto pt-20 pb-10">
               <div className="space-y-7 w-full">
                 <ViewProvider>
                   <DashbaordAssessmentHeader />

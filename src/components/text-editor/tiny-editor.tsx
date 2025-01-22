@@ -177,7 +177,7 @@ const TextEditor = () => {
     <div className="w-full">
       <div className="space-y-2">
         <Typography variant="body1" className="text-neutral-black">
-          General Knowledge Base
+          Interaction instructions (shown to learner)
         </Typography>
         <div className="border border-gray-300 rounded-lg bg-white overflow-hidden">
           <div className="p-4 min-h-[402px]" onClick={focus}>
