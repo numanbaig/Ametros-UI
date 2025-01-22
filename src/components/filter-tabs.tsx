@@ -130,6 +130,10 @@ const DashbaordFilterTabs: React.FC<{ isNewAssessmentPage?: boolean }> = ({
               </TabsList>
             </DropdownMenuContent>
           </DropdownMenu>
+          <div className="flex justify-center items-center gap-x-2">
+            {!isNewAssessmentPage && <Search />}
+            {!isNewAssessmentPage && <ChangeViewTabs />}
+          </div>
         </div>
         {tabsData[activeTabIndex]?.component}
       </Tabs>
