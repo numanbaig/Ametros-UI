@@ -25,7 +25,7 @@ export const sidebarData: navMainTypes[] = [
   {
     id: 2,
     title: "Assessments",
-    url: "/assessments",
+    url: "/dashboard/new-assessment",
     icon: BsClipboardCheck,
   },
   {
@@ -199,3 +199,5 @@ export const assessmentData: Assessment[] = [
     ],
   },
 ];
+
+// text editor

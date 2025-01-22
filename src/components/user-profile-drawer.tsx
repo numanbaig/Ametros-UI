@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { Typography } from "./typography";
 import ImageComponent from "./image-component";
+import Image from "next/image";
 const DashboardUserProfileDrawer = () => {
   return (
     <DropdownMenu>
@@ -17,21 +18,33 @@ const DashboardUserProfileDrawer = () => {
           variant="outline"
           className="border-none bg-transparent hover:bg-transparent outline-none flex items-center gap-x-2 !ring-0 !border-0 ring-offset-0 !focus-visible:ring-offset-0 !focus-within:ring-offset-0 !focus-visible:ring-0 !focus-within:ring-0 !focus-visible:outline-none !focus-within:outline-none"
         >
-          <Typography
-            variant="body2"
-            className="leading-[25px] text-[18px] text-neutral-black"
-          >
-            User Name
-          </Typography>
-          <span className="mt-1">
-            <ImageComponent
-              src="/assets/icons/arrow-down.svg"
-              alt="angle-down"
+          <div className="relative !size-12 rounded-full overflow-hidden">
+            <Image
+              src={"/assets/avatar.png"}
+              alt=""
+              fill
+              priority
+              className="object-cover rounded-full"
             />
-          </span>
+          </div>
+
+          <div className="hidden sm:flex justify-center items-center gap-x-2">
+            <Typography
+              variant="body2"
+              className="leading-[25px] text-[18px] text-neutral-black"
+            >
+              User Name
+            </Typography>
+            <span className="mt-1">
+              <ImageComponent
+                src="/assets/icons/arrow-down.svg"
+                alt="angle-down"
+              />
+            </span>
+          </div>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="reltive mt-4 mr-10 w-52 h-44 rounded-[16px] p-6 border border-customGray-100 bg-neutral-white shadow-custom z-[99999] bg-white before:absolute before:h-8 before:w-8 before:bg-red-500 before:top-0 before:right-14">
+      <DropdownMenuContent className="reltive mt-4 mr-10 w-52 h-44 rounded-[16px] p-6 border border-customGray-100 bg-neutral-white shadow-custom z-[99999] bg-white ">
         <div className="relative gap-6 flex flex-col justify-center items-center ">
           {/* <div
             className="absolute -top-8 bg-red-500 w-[56px] h-8 rounded-t "

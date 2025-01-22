@@ -25,7 +25,7 @@ const DashboardCustomButton = ({
           <ImageComponent className="size-3" src={icon} alt="angle-down" />
         </div>
       )}
-      <Typography variant="body1" className="">
+      <Typography variant="body1" className="sm:text-[16px] text-[14px]">
         {children}
       </Typography>
     </Button>

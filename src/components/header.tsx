@@ -64,9 +64,6 @@ const DashboardHeader = () => {
         {isLoggedIn ? (
           <>
             {" "}
-            <div className="relative size-12 rounded-full overflow-hidden bg-customGray-300">
-              {/* <Image src={""} alt="" fill priority /> */}
-            </div>
             <DashboardUserProfileDrawer />
           </>
         ) : (

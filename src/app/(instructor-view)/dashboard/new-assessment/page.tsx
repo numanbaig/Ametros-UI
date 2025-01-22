@@ -3,7 +3,7 @@ import Loader from "./(componenents)/loader";
 
 const DashbaordNewAssessmentPage = () => {
   const loader = false;
-  return <div>{loader ? <Loader /> : <div>Assessments</div>}</div>;
+  return <div>{loader ? <Loader /> : <div></div>}</div>;
 };
 
 export default DashbaordNewAssessmentPage;
