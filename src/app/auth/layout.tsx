@@ -2,6 +2,16 @@ import type { Metadata } from "next";
 
 import DashboardHeader from "@/components/header";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import "../globals.css";
+import { Poppins } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+  variable: "--font-poppins",
+  // display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Dashbaord",
@@ -14,15 +24,24 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="w-ful">
-      <SidebarProvider>
-        <div className="flex h-screen flex-col w-full">
-          <DashboardHeader />
-          <div className="flex-1 pt-[60px] pb-[20px] md:pt-[120px]  mx-auto w-full">
-            {children}
-          </div>
-        </div>
-      </SidebarProvider>
-    </main>
+    <html>
+      <body
+        className={cn(
+          `font-[family-name:var(--font-lato)] antialiased`,
+          poppins.variable
+        )}
+      >
+        <main className="w-ful">
+          <SidebarProvider>
+            <div className="flex h-screen flex-col w-full">
+              <DashboardHeader />
+              <div className="flex-1 pt-[60px] pb-[20px] md:pt-[120px]  mx-auto w-full">
+                {children}
+              </div>
+            </div>
+          </SidebarProvider>
+        </main>
+      </body>
+    </html>
   );
 }

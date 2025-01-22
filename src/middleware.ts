@@ -21,7 +21,7 @@ export function middleware(request: NextRequest) {
   }
 
   // For development - replace with actual auth logic later
-  const isAuthenticated = true; // Temporarily set to true for development
+  const isAuthenticated = false; // Temporarily set to true for development
 
   const publicRoutes = [
     "/auth/login",

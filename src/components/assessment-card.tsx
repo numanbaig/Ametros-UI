@@ -19,7 +19,7 @@ import { Card } from "@/components/ui/card";
 const DashboardAssessmentCard = () => {
   const { isGridView } = useViewContext();
   return (
-    <>
+    <div className="min-w-full">
       {isGridView ? (
         <div
           className={cn(
@@ -64,7 +64,7 @@ const DashboardAssessmentCard = () => {
           </Card>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

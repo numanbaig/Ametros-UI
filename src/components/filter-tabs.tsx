@@ -59,7 +59,7 @@ const DashbaordFilterTabs: React.FC<{ isNewAssessmentPage?: boolean }> = ({
         }
         className="w-full p-0 space-y-6 sm:block hidden"
       >
-        <div className="flex justify-between items-center w-full gap-x-2">
+        <div className="flex justify-between items-center w-full gap-x-6">
           <div className="flex items-center gap-x-2 w-full">
             <TabsList className="sm:flex hidden gap-x-2 bg-transparent">
               {tabsData.map((tab, index) => (

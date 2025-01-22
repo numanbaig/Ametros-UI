@@ -10,7 +10,7 @@ const ChangeViewTabs = () => {
   const { isGridView, setIsGridView } = useViewContext();
 
   return (
-    <div className="flex justify-end items-center gap-x-2 w-full">
+    <div className="flex justify-end items-center gap-x-2">
       <Typography
         variant="body1"
         className="lg:block hidden leading-4 text-primary-800"

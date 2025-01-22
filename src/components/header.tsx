@@ -10,7 +10,7 @@ import DashboardAuthButtons from "@/app/auth/(components)/auth-buttons";
 import { Menu } from "lucide-react";
 import { useSidebar } from "./ui/sidebar";
 const DashboardHeader = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const { setOpen, isMobile, setOpenMobile } = useSidebar();
   return (
     <div className="flex justify-between items-center w-full py-4 sm:px-8 px-4 h-20 bg-[#F8F8F8]">
