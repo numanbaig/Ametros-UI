@@ -45,7 +45,9 @@ const DashboardBreadcrumbs = () => {
                       !isLast && "font-[300]"
                     )}
                   >
-                    {segment}
+                    {segment.includes("-")
+                      ? segment.replaceAll("-", " ")
+                      : segment}
                   </Typography>
                 </Link>
               </React.Fragment>

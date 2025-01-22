@@ -66,6 +66,28 @@ export const LoginFormData: FormField[] = [
   },
 ];
 
+export const ReturningUserRegistrationFormData: FormField[] = [
+  {
+    id: 1,
+    name: "registrationCode",
+    type: "text",
+    label: "Registration Code",
+  },
+  {
+    id: 2,
+    name: "email",
+    placeholder: "username@email.com",
+    type: "text",
+    label: "Email",
+  },
+  {
+    id: 3,
+    name: "password",
+    type: "password",
+    label: "Password",
+  },
+];
+
 export const ForgotPasswordFormData: FormField[] = [
   {
     id: 1,

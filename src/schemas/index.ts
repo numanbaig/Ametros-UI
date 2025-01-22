@@ -36,6 +36,14 @@ export const AuthFormSchema = (type: string) => {
 
   const loginSchema = commonSchema;
 
+  const returningUserSchema = commonSchema.merge(
+    z.object({
+      registrationCode: z
+        .string()
+        .min(6, "Registration code must be at least 6 characters long"),
+    })
+  );
+
   const forgotPasswordSchema = z.object({
     email: z.string().email("Invalid email address"),
   });
@@ -43,5 +51,6 @@ export const AuthFormSchema = (type: string) => {
   // Combine schemas based on type
   if (type === "register") return registerSchema;
   if (type === "forgot-password") return forgotPasswordSchema;
+  if (type === "returning-user-registration") return returningUserSchema;
   return loginSchema;
 };

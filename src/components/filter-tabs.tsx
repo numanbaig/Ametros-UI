@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState } from "react";
@@ -5,16 +6,30 @@ import { Typography } from "./typography";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import Search from "./search";
+import { usePathname } from "next/navigation";
 
-const tabsArray = [
-  { name: "Drafts" },
-  { name: "Published" },
-  { name: "Historical" },
-];
-
-const DashbaordFilterTabs = ({ tabs }: { tabs?: [{ name: string }] }) => {
+const DashbaordFilterTabs = ({
+  isNewAssessmentPage,
+}: {
+  isNewAssessmentPage?: boolean;
+}) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const tabsData = tabs ? tabs : tabsArray;
+  const pathname = usePathname();
+
+  const tabsArray = [
+    { name: "Drafts" },
+    { name: "Published" },
+    { name: "Historical" },
+  ];
+  const newAssessmentsTabsArray = [
+    { name: "Overview" },
+    { name: "Narrative" },
+    { name: "Rubric" },
+    { name: "Rubric" },
+    { name: "Test" },
+  ];
+
+  const tabsData = isNewAssessmentPage ? newAssessmentsTabsArray : tabsArray;
 
   return (
     <div className="flex sm:justify-start justify-between items-center gap-x-2 w-full">
@@ -36,7 +51,7 @@ const DashbaordFilterTabs = ({ tabs }: { tabs?: [{ name: string }] }) => {
           </Button>
         ))}
       </div>
-      <Search />
+      {!isNewAssessmentPage && <Search />}
     </div>
   );
 };

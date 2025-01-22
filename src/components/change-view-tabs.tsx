@@ -11,7 +11,10 @@ const ChangeViewTabs = () => {
 
   return (
     <div className="flex justify-center items-center gap-x-2">
-      <Typography variant="body1" className="leading-4 text-primary-800">
+      <Typography
+        variant="body1"
+        className="sm:block hidden leading-4 text-primary-800"
+      >
         View
       </Typography>
       <Button

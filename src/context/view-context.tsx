@@ -1,7 +1,7 @@
 "use client";
 
 // ViewContext.tsx
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 type ViewContextType = {
   isGridView: boolean;
@@ -13,9 +13,14 @@ const ViewContext = createContext<ViewContextType | undefined>(undefined);
 export const ViewProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [isGridView, setIsGridView] = useState(true);
+  const [isGridView, setIsGridView] = useState<boolean>(() => {
+    const storedView = localStorage.getItem("gridView");
+    return storedView ? JSON.parse(storedView) : true;
+  });
 
-  // const toggleView = () => setIsGridView((prev) => !prev);
+  useEffect(() => {
+    localStorage.setItem("gridView", JSON.stringify(isGridView));
+  }, [isGridView]);
 
   return (
     <ViewContext.Provider value={{ isGridView, setIsGridView }}>

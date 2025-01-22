@@ -3,4 +3,5 @@ export enum AuthType {
   REGISTER = "register",
   FORGET_PASSWORD = "forgot-password",
   GETTING_STARTED = "getting-started",
+  RETURNINGUSERREGISTRATION = "returning-user-registration",
 }

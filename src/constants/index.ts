@@ -66,10 +66,6 @@ export const assessmentData: Assessment[] = [
     type: AssessmentType.Full,
     details: [
       {
-        title: "Type",
-        value: "Lorem ipsum",
-      },
-      {
         title: "Version",
         value: "0.2",
       },
@@ -80,6 +76,10 @@ export const assessmentData: Assessment[] = [
       {
         title: "Updated",
         value: "Jan 8, 2024",
+      },
+      {
+        title: "Type",
+        value: "Lorem ipsum",
       },
     ],
   },
@@ -89,10 +89,6 @@ export const assessmentData: Assessment[] = [
     type: AssessmentType.Quick,
     details: [
       {
-        title: "Type",
-        value: "Lorem ipsum",
-      },
-      {
         title: "Version",
         value: "0.2",
       },
@@ -103,6 +99,10 @@ export const assessmentData: Assessment[] = [
       {
         title: "Updated",
         value: "Jan 8, 2024",
+      },
+      {
+        title: "Type",
+        value: "Lorem ipsum",
       },
     ],
   },
@@ -112,10 +112,6 @@ export const assessmentData: Assessment[] = [
     type: AssessmentType.Full,
     details: [
       {
-        title: "Type",
-        value: "Lorem ipsum",
-      },
-      {
         title: "Version",
         value: "0.2",
       },
@@ -126,6 +122,10 @@ export const assessmentData: Assessment[] = [
       {
         title: "Updated",
         value: "Jan 8, 2024",
+      },
+      {
+        title: "Type",
+        value: "Lorem ipsum",
       },
     ],
   },
@@ -135,10 +135,6 @@ export const assessmentData: Assessment[] = [
     type: AssessmentType.Full,
     details: [
       {
-        title: "Type",
-        value: "Lorem ipsum",
-      },
-      {
         title: "Version",
         value: "0.2",
       },
@@ -149,6 +145,10 @@ export const assessmentData: Assessment[] = [
       {
         title: "Updated",
         value: "Jan 8, 2024",
+      },
+      {
+        title: "Type",
+        value: "Lorem ipsum",
       },
     ],
   },
@@ -158,10 +158,6 @@ export const assessmentData: Assessment[] = [
     type: AssessmentType.Full,
     details: [
       {
-        title: "Type",
-        value: "Lorem ipsum",
-      },
-      {
         title: "Version",
         value: "0.2",
       },
@@ -172,6 +168,10 @@ export const assessmentData: Assessment[] = [
       {
         title: "Updated",
         value: "Jan 8, 2024",
+      },
+      {
+        title: "Type",
+        value: "Lorem ipsum",
       },
     ],
   },
@@ -181,10 +181,6 @@ export const assessmentData: Assessment[] = [
     type: AssessmentType.Full,
     details: [
       {
-        title: "Type",
-        value: "Lorem ipsum",
-      },
-      {
         title: "Version",
         value: "0.2",
       },
@@ -195,6 +191,10 @@ export const assessmentData: Assessment[] = [
       {
         title: "Updated",
         value: "Jan 8, 2024",
+      },
+      {
+        title: "Type",
+        value: "Lorem ipsum",
       },
     ],
   },

@@ -1,81 +1,70 @@
 "use client";
 
-import { assessmentData, AssessmentType } from "@/constants";
+import { assessmentData } from "@/constants";
 import React from "react";
-import { Typography } from "./typography";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
-import ImageComponent from "./image-component";
-import { Separator } from "@radix-ui/react-separator";
 import { useViewContext } from "@/context/view-context";
+import AssessentsGridView from "./grid-view";
+import AssessentsListView from "./list-view";
 
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Card } from "@/components/ui/card";
 const DashboardAssessmentCard = () => {
   const { isGridView } = useViewContext();
   return (
-    <div
-      className={cn("grid  gap-6 w-full", {
-        "grid grid-cols-1 xl:grid-cols-3 sm:grid-cols-2": isGridView,
-        "md:grid-cols-2": !isGridView,
-      })}
-    >
-      {assessmentData.map((assessment) => (
+    <>
+      {isGridView ? (
         <div
-          className="flex flex-col gap-[16px] shadow-custom p-6 rounded-[16px]"
-          key={assessment.id}
+          className={cn(
+            "grid gap-6 w-full grid-cols-1 sm:grid-cols-2 xl:grid-cols-3",
+            {}
+          )}
         >
-          <div className="flex justify-between items-center w-full">
-            <Typography
-              variant="body3"
-              className={cn(
-                "text-neutral-black py-0.5 px-2 bg-neutral-cream rounded-[37px]",
-                {
-                  "bg-secondary-50": assessment.type === AssessmentType.Full,
-                }
-              )}
-            >
-              {assessment.type}
-            </Typography>
-            <div className="flex items-center gap-4">
-              <Button className="border w-10 h-8 border-neutral-lightRed bg-transparent">
-                <ImageComponent src="/assets/icons/delete.svg" alt="delete" />
-              </Button>
-              <Button className="border w-10 h-8 border-primary-600 bg-transparent">
-                <ImageComponent src="/assets/icons/edit.svg" alt="edit" />
-              </Button>
-            </div>
-          </div>
-          <Separator className="w-full bg-[#C9D6DF] h-[1px]" />
-          <div className="text-center">
-            <Typography
-              variant="h5"
-              className="leading-[25px] text-[18px] font-bold text-neutral-black"
-            >
-              {assessment.title}
-            </Typography>
-          </div>
-          <div className="mt-6 space-y-4">
-            <div className="grid grid-cols-2 w-full gap-6">
-              {assessment.details.map(({ title, value }, index) => (
-                <div className="space-y-1" key={index}>
-                  <Typography
-                    variant="body3"
-                    className="leading-[14px] text-neutral-black"
-                  >
-                    {title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    className="text-[16px] text-neutral-black"
-                  >
-                    {value}
-                  </Typography>
-                </div>
-              ))}
-            </div>
-          </div>
+          {assessmentData.map((assessment) => (
+            <AssessentsGridView key={assessment.id} assessment={assessment} />
+          ))}
         </div>
-      ))}
-    </div>
+      ) : (
+        <div className="md:w-full w-[90vw] flex  ">
+          <Card className="w-full shrink border-none ">
+            <ScrollArea className="w-full !border-none shadow-custom bg-white rounded-[16px] px-6">
+              <Table className="w-full border-none">
+                <TableHeader>
+                  <TableRow>
+                    {["Title", "Type", "Version", "Created", "Updated", ""].map(
+                      (value, index) => (
+                        <TableHead
+                          key={index}
+                          className="font-normal text-sm leading-5 text-neutral-black"
+                        >
+                          {value}
+                        </TableHead>
+                      )
+                    )}
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {assessmentData.map((assessment) => (
+                    <AssessentsListView
+                      assessment={assessment}
+                      key={assessment.id}
+                    />
+                  ))}
+                </TableBody>
+              </Table>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          </Card>
+        </div>
+      )}
+    </>
   );
 };
 

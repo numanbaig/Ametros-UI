@@ -27,6 +27,7 @@ import {
   ForgotPasswordFormData,
   LoginFormData,
   registerFormData,
+  ReturningUserRegistrationFormData,
 } from "@/utils";
 import CommonAuthForm from "./common-form";
 import PasswordRequirements from "./password-requirements";
@@ -53,6 +54,8 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
       ? registerFormData
       : type === AuthType.LOGIN
       ? LoginFormData
+      : type === AuthType.RETURNINGUSERREGISTRATION
+      ? ReturningUserRegistrationFormData
       : ForgotPasswordFormData;
 
   return (
@@ -77,13 +80,17 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
             );
           })}
 
-          {type === AuthType.LOGIN && (
+          {(type === AuthType.LOGIN ||
+            type === AuthType.RETURNINGUSERREGISTRATION) && (
             <>
               <div className="flex justify-between items-center w-full">
-                <div className="flex items-center gap-x-2">
+                <div
+                  className={cn("flex items-center gap-x-2", {
+                    hidden: type === AuthType.RETURNINGUSERREGISTRATION,
+                  })}
+                >
                   <Checkbox
                     id="terms"
-                    // color="#1AA3B3"
                     className="text-white size-6 rounded-sm p-1"
                   />
                   <label
@@ -91,19 +98,28 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     <Typography variant="body1" className="text-neutral-black">
-                      {" "}
                       Remember me
                     </Typography>
                   </label>
                 </div>
+                {type === AuthType.RETURNINGUSERREGISTRATION && <div />}
                 <Link
                   href="/auth/forgot-password"
                   className="text-primary-600 underline"
                 >
-                  <Typography variant="body1">Forgot Password?</Typography>
+                  <Typography variant="body1" className="font-bold">
+                    Forgot Password?
+                  </Typography>
                 </Link>
               </div>
-              <div className="flex justify-center items-center gap-x-2 w-full">
+              <div
+                className={cn(
+                  "flex justify-center items-center gap-x-2 w-full",
+                  {
+                    hidden: type === AuthType.RETURNINGUSERREGISTRATION,
+                  }
+                )}
+              >
                 <DashboardCustomButton className="h-[40px] w-full text-[16px] !font-bold shrink">
                   Login
                 </DashboardCustomButton>
@@ -126,7 +142,9 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
           </div>
         )}
 
-        {(type === AuthType.FORGET_PASSWORD || type === AuthType.REGISTER) && (
+        {(type === AuthType.FORGET_PASSWORD ||
+          type === AuthType.REGISTER ||
+          type === AuthType.RETURNINGUSERREGISTRATION) && (
           <>
             <div
               className={cn("w-full", {

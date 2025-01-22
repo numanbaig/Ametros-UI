@@ -28,13 +28,14 @@ export function middleware(request: NextRequest) {
     "/auth/register",
     "/auth/forgot-password",
     "/auth/getting-started",
+    "/auth/returning-user-registration",
   ];
 
   const isPublicRoute = publicRoutes.includes(pathname);
 
   // Redirect to login if trying to access protected routes while not authenticated
   if (!isAuthenticated && !isPublicRoute) {
-    return NextResponse.redirect(new URL("/auth/login", request.url));
+    return NextResponse.redirect(new URL("/auth/getting-started", request.url));
   }
 
   // Redirect to home if trying to access auth pages while authenticated

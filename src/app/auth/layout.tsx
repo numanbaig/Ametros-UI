@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import DashboardHeader from "@/components/header";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export const metadata: Metadata = {
   title: "Dashbaord",
@@ -14,12 +15,14 @@ export default function AuthLayout({
 }>) {
   return (
     <main className="w-ful">
-      <div className="flex h-screen flex-col w-full">
-        <DashboardHeader />
-        <div className="flex-1 pt-[60px] pb-[20px] md:pt-[120px]  mx-auto w-full">
-          {children}
+      <SidebarProvider>
+        <div className="flex h-screen flex-col w-full">
+          <DashboardHeader />
+          <div className="flex-1 pt-[60px] pb-[20px] md:pt-[120px]  mx-auto w-full">
+            {children}
+          </div>
         </div>
-      </div>
+      </SidebarProvider>
     </main>
   );
 }

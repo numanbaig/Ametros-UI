@@ -9,9 +9,9 @@ import DashboardAssistant from "./assistant";
 const DashboardChat = () => {
   const [popUp, setPopup] = useState<boolean>(true);
   return (
-    <div className="fixed bottom-7 right-0 sm:!right-6 w-full flex flex-col items-end gap-[18px] z-50">
+    <div className="fixed bottom-7 right-0 sm:!right-6 w-full flex flex-col items-end gap-[18px] !z-[9999999999]">
       {popUp && (
-        <div className="relative p-6 flex justify-center items-center bg-white shadow-custom rounded-[32px] w-[309px] h-16 z-[9999]">
+        <div className="relative p-6 flex justify-center items-center bg-white shadow-custom rounded-[32px] w-[309px] h-16 !z-[999999999]">
           <Typography
             variant="body1"
             className="text-[20px] leading-[21px] font-bold text-primary-blueLight  "
