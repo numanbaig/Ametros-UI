@@ -14,8 +14,11 @@ export const ViewProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [isGridView, setIsGridView] = useState<boolean>(() => {
-    const storedView = localStorage.getItem("gridView");
-    return storedView ? JSON.parse(storedView) : true;
+    if (typeof window !== "undefined") {
+      const storedView = localStorage.getItem("gridView");
+      return storedView ? JSON.parse(storedView) : true;
+    }
+    return true;
   });
 
   useEffect(() => {
