@@ -9,12 +9,17 @@ import { SlashIcon } from "lucide-react";
 
 const DashboardBreadcrumbs = () => {
   const pathname = usePathname();
+  const notToShowInBreadcrumbs = ["published", "historical"];
 
   const pathSegments = pathname.split("/").filter(Boolean);
 
+  const shouldShowBreadcrumbs =
+    pathname === "/" ||
+    notToShowInBreadcrumbs.some((segment) => pathname.includes(segment));
+
   return (
     <div className="flex items-center gap-2">
-      {pathname === "/" ? (
+      {shouldShowBreadcrumbs ? (
         <Typography
           variant="h5"
           className="font-semibold text-neutral-black leading-6"
@@ -41,7 +46,7 @@ const DashboardBreadcrumbs = () => {
                   <Typography
                     variant="h5"
                     className={cn(
-                      "capitalize  text-[21px] font-bold text-neutral-black leading-6",
+                      "capitalize text-[21px] font-bold text-neutral-black leading-6",
                       !isLast && "font-[300]"
                     )}
                   >
