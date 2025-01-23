@@ -118,6 +118,12 @@ const DashboardSidebar = ({
                     <SidebarMenuButton
                       className="!w-full !py-5"
                       tooltip={item.title}
+                      onClick={() => {
+                        if (isMobile) {
+                          setOpenMobile(false);
+                        }
+                        return null;
+                      }}
                     >
                       <Link
                         href={item.url ? item.url : "/"}
