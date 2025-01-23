@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useCallback, useState } from "react";
-import { Editor, EditorState, RichUtils } from "draft-js";
+import { Editor, EditorState, RichUtils, ContentState } from "draft-js";
 import "draft-js/dist/Draft.css";
 import {
   Undo2,
@@ -36,8 +36,12 @@ interface EditorButton {
 
 const TextEditor = ({ title, content }: { title: string; content: string }) => {
   const [assisstant, setAssistant] = useState(false);
-  const [editorState, setEditorState] = React.useState(
-    EditorState.createEmpty()
+  const initialText = `You are a newly hired Sales Representative at GreenGrid Dynamics, a B2B software company focused on empowering businesses in the renewable energy sector through a specialized CRM tool. Your mentor, Taylor Nguyen, has sent you the LinkedIn profile of an old contact, Mark Reyes, and a document regarding GreenGrid's CRM tool. Taylor has set up a meeting with Mark and wants you to take the lead on pitching the CRM tool to him.
+  https://www.linkedin.com/in/markreyes/
+  After you read the document and LinkedIn profile, go ahead and reach out to Mark by starting the conversation below. When you are ready to end the conversation, hit the "Get Assessment" button in the lower right corner of the screen.`;
+
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createWithContent(ContentState.createFromText(initialText))
   );
   const editorRef = React.useRef<Editor>(null);
 
