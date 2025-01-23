@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "../ui/input";
-import ImageComponent from "../image-component";
+import ImageComponent from "../image-component/image-component";
 import { Button } from "../ui/button";
 
 interface AssistantInput {

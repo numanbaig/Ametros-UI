@@ -4,8 +4,7 @@ import { assessmentData } from "@/constants";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { useViewContext } from "@/context/view-context";
-import AssessentsGridView from "./grid-view";
-import AssessentsListView from "./list-view";
+import AssessentsGridView from "../grid-view/grid-view";
 
 import {
   Table,
@@ -16,6 +15,7 @@ import {
 } from "@/components/ui/table";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
+import AssessentsListView from "../list-view/list-view";
 const DashboardAssessmentCard = () => {
   const { isGridView } = useViewContext();
   return (

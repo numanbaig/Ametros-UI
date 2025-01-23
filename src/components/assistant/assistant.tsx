@@ -5,7 +5,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "../ui/button";
-import ImageComponent from "../image-component";
+import ImageComponent from "../image-component/image-component";
 import AssistantHeader from "./assistant-header";
 import AssistantContent from "./assistant-content";
 import AssistantInput from "./assistant-input";

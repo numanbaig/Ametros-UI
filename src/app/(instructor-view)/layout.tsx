@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
-import Sidebar from "@/components/sidebar";
+import Sidebar from "@/components/sidebar/sidebar";
 
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import DashboardHeader from "@/components/header";
+import DashboardHeader from "@/components/header/header";
 import DashboardChat from "@/components/assistant/chat-box";
-import DashbaordAssessmentHeader from "@/components/assessment-header";
 import { ViewProvider } from "@/context/view-context";
 
 import "../globals.css";
 
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
+import DashbaordAssessmentHeader from "@/components/assessment/assessment-header/assessment-header";
 
 const poppins = Poppins({
   subsets: ["latin"],

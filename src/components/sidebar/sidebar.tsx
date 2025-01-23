@@ -19,9 +19,9 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
 import Link from "next/link";
-import { Typography } from "./typography";
+import { Typography } from "../typography/typography";
 import { sidebarData } from "@/constants";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";

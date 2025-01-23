@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import ImageComponent from "./image-component";
-import { Typography } from "./typography";
+import ImageComponent from "../image-component/image-component";
+import { Typography } from "../typography/typography";
 
 const DashboardCustomButton = ({
   children,

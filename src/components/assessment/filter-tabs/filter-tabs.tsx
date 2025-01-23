@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { Typography } from "./typography";
-import { Button } from "./ui/button";
+import { Typography } from "../../typography/typography";
+import { Button } from "../../ui/button";
 import { cn } from "@/lib/utils";
-import Search from "./search";
+import Search from "../search/search";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,14 +12,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ListFilter } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import AssessmentsDraftsTab from "./assessments-tabs/drafts";
-import ChangeViewTabs from "./change-view-tabs";
-import AssessmentPublishedtab from "./assessments-tabs/published";
-import AssessmentHistoricalTab from "./assessments-tabs/historical";
-import AssessmentOverviewtab from "./assessments-tabs/overview";
-import AssessmentRubricTab from "./assessments-tabs/rubric";
-import AssessmentNarrativewtab from "./assessments-tabs/narrative";
-import AssessmentTestTab from "./assessments-tabs/test";
+import AssessmentsDraftsTab from "../assessments-tabs/drafts";
+import ChangeViewTabs from "../change-view-tabs/change-view-tabs";
+import AssessmentPublishedtab from "../assessments-tabs/published";
+import AssessmentHistoricalTab from "../assessments-tabs/historical";
+import AssessmentOverviewtab from "../assessments-tabs/overview";
+import AssessmentRubricTab from "../assessments-tabs/rubric";
+import AssessmentNarrativewtab from "../assessments-tabs/narrative";
+import AssessmentTestTab from "../assessments-tabs/test";
 
 type Tab = {
   name: string;

@@ -7,9 +7,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import { Typography } from "./typography";
-import ImageComponent from "./image-component";
 import Image from "next/image";
+import { Typography } from "../typography/typography";
+import ImageComponent from "../image-component/image-component";
 const DashboardUserProfileDrawer = () => {
   return (
     <DropdownMenu>

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { Typography } from "./typography";
-import { Button } from "./ui/button";
-import ImageComponent from "./image-component";
+import { Typography } from "../../typography/typography";
+import { Button } from "../../ui/button";
+import ImageComponent from "../../image-component/image-component";
 import { useViewContext } from "@/context/view-context";
 import { cn } from "@/lib/utils";
 

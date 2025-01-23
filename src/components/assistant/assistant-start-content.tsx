@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
-import ImageComponent from "../image-component";
-import { Typography } from "../typography";
+import ImageComponent from "../image-component/image-component";
+import { Typography } from "../typography/typography";
 
 interface ChatType {
   type: string;

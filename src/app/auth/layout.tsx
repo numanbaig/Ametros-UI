@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import DashboardHeader from "@/components/header";
+import DashboardHeader from "@/components/header/header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import "../globals.css";
 import { Poppins } from "next/font/google";

@@ -1,10 +1,10 @@
 import React from "react";
-import { Typography } from "./typography";
-import ImageComponent from "./image-component";
-import { Button } from "./ui/button";
-import { Separator } from "./ui/separator";
 import { AssessmentType } from "@/constants";
 import { cn } from "@/lib/utils";
+import { Typography } from "@/components/typography/typography";
+import { Button } from "@/components/ui/button";
+import ImageComponent from "@/components/image-component/image-component";
+import { Separator } from "@/components/ui/separator";
 
 interface AssessmentProps {
   id: string; // Changed from number to string to match the type

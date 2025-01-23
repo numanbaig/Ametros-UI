@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import ImageComponent from "../image-component";
+import ImageComponent from "../image-component/image-component";
 import { Button } from "../ui/button";
-import { Typography } from "../typography";
+import { Typography } from "../typography/typography";
 import DashboardAssistant from "./assistant";
 
 const DashboardChat = () => {

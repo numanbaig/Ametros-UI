@@ -1,5 +1,5 @@
-import ImageComponent from "@/components/image-component";
-import { Typography } from "@/components/typography";
+import ImageComponent from "@/components/image-component/image-component";
+import { Typography } from "@/components/typography/typography";
 import React from "react";
 
 const PasswordRequirements = () => {

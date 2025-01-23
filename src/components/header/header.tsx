@@ -1,16 +1,16 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
-import DashboardBreadcrumbs from "./breadcrumbs";
+import DashboardBreadcrumbs from "../breadcrumbs/breadcrumbs";
 import Image from "next/image";
-import DashboardUserProfileDrawer from "./user-profile-drawer";
 import { cn } from "@/lib/utils";
 
 import DashboardAuthButtons from "@/app/auth/(components)/auth-buttons";
 import { Menu } from "lucide-react";
-import { useSidebar } from "./ui/sidebar";
+import { useSidebar } from "../ui/sidebar";
+import DashboardUserProfileDrawer from "../user-profile-drawer/user-profile-drawer";
 const DashboardHeader = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   const { setOpen, isMobile, setOpenMobile } = useSidebar();
   return (
     <div className="flex justify-between items-center w-full py-4 sm:px-8 px-4 h-20 bg-[#F8F8F8]">

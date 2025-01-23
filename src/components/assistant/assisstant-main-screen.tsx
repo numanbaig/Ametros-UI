@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import ImageComponent from "../image-component";
-import { Typography } from "../typography";
+import ImageComponent from "../image-component/image-component";
+import { Typography } from "../typography/typography";
 
 const AssistantMainScreen = ({ chatType }: { chatType: any }) => {
   console.log(chatType);

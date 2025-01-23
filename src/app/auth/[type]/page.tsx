@@ -4,8 +4,8 @@ import DashboardAuthHeader from "../(components)/auth-header";
 import { AuthType } from "@/types";
 import DashboardAuthForm from "../(components)/auth-form";
 import { cn } from "@/lib/utils";
-import DashboardCustomButton from "@/components/custom-button";
 import Link from "next/link";
+import DashboardCustomButton from "@/components/custom-button/custom-button";
 
 const DashboardAuthPage = async ({
   params,

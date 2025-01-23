@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography } from "../typography";
+import { Typography } from "../typography/typography";
 import { Button } from "../ui/button";
-import ImageComponent from "../image-component";
+import ImageComponent from "../image-component/image-component";
 
 const AssistantHeader = ({
   setOpenChatBox,

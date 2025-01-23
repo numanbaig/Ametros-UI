@@ -1,4 +1,4 @@
-import DashboardCustomButton from "@/components/custom-button";
+import DashboardCustomButton from "@/components/custom-button/custom-button";
 import Link from "next/link";
 import React from "react";
 

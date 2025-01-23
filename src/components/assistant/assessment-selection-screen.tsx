@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { Typography } from "../typography";
+import { Typography } from "../typography/typography";
 import { Button } from "../ui/button";
 
 interface ChatType {

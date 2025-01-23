@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Typography } from "./typography";
+import { Typography } from "../typography/typography";
 import { SlashIcon } from "lucide-react";
 
 const DashboardBreadcrumbs = () => {

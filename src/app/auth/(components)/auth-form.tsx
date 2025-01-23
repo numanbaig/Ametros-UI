@@ -16,12 +16,11 @@ import {
 } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import { AuthType } from "@/types";
-import { Typography } from "@/components/typography";
+import { Typography } from "@/components/typography/typography";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Checkbox } from "@/components/ui/checkbox";
-import DashboardCustomButton from "@/components/custom-button";
-import ImageComponent from "@/components/image-component";
+import ImageComponent from "@/components/image-component/image-component";
 import Recaptchaverification from "./recaptcha";
 import {
   ForgotPasswordFormData,
@@ -31,6 +30,7 @@ import {
 } from "@/utils";
 import CommonAuthForm from "./common-form";
 import PasswordRequirements from "./password-requirements";
+import DashboardCustomButton from "@/components/custom-button/custom-button";
 const DashboardAuthForm = ({ type }: { type: string }) => {
   const formSchema = AuthFormSchema(type);
   const form = useForm<z.infer<typeof formSchema>>({

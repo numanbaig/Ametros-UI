@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Typography } from "@/components/typography";
+import { Typography } from "@/components/typography/typography";
 import {
   FormControl,
   FormField,

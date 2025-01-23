@@ -1,9 +1,9 @@
 import React from "react";
-import { TableCell, TableRow } from "./ui/table";
-import { Button } from "./ui/button";
-import ImageComponent from "./image-component";
 import { cn } from "@/lib/utils";
 import { AssessmentType } from "@/constants";
+import ImageComponent from "../../image-component/image-component";
+import { TableCell, TableRow } from "../../ui/table";
+import { Button } from "../../ui/button";
 interface AssessmentProps {
   id: string; // Changed from number to string to match the type
   type: string;

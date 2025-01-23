@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import DashbaordFilterTabs from "./filter-tabs";
-import DashboardCustomButton from "./custom-button";
-import { Typography } from "./typography";
+import DashbaordFilterTabs from "../filter-tabs/filter-tabs";
+import DashboardCustomButton from "../../custom-button/custom-button";
+import { Typography } from "../../typography/typography";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
