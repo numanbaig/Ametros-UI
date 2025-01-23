@@ -22,7 +22,7 @@ type Tab = {
 
 const DashbaordFilterTabs: React.FC<{
   isNewAssessmentPage?: boolean;
-  tabs: { name: string; href: string }[];
+  tabs?: { name: string; href: string }[];
 }> = ({ isNewAssessmentPage = false, tabs }) => {
   const pathname = usePathname();
   const [activeTabIndex, setActiveTabIndex] = useState<number | null>(null);
