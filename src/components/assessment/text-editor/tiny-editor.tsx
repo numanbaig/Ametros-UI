@@ -181,7 +181,7 @@ const TextEditor = () => {
           Interaction instructions (shown to learner)
         </Typography>
         <div className="border border-gray-300 rounded-lg bg-white overflow-hidden pr-2 pl-4 py-2">
-          <div className="sm:min-h-[402px] w-full" onClick={focus}>
+          <div className="min-h-[402px] w-full" onClick={focus}>
             <Editor
               ref={editorRef}
               editorState={editorState}
