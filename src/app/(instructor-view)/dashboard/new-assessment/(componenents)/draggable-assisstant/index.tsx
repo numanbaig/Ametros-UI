@@ -16,6 +16,7 @@ export default function DraggableAssistant({
   const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef<HTMLDivElement>(null);
   const startPosRef = useRef({ x: 0, y: 0 });
+  const [message, setMessage] = useState<string>("");
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!dragRef.current) return;
@@ -63,9 +64,9 @@ export default function DraggableAssistant({
         cursor: "move",
         userSelect: "none",
       }}
-      className="w-[389px] rounded-[16px] shadow-assitant min-h-[288px] bg-white z-[9999]"
+      className="w-[300px] xs:w-[389px] rounded-[16px] shadow-assitant h-[288px] bg-white z-[9999] p-0"
     >
-      <div className="flex justify-between items-center px-4 py-2 h-full">
+      <div className="flex justify-between items-center px-4 py-2">
         <div />
         <Button
           className="bg-transparent p-0"
@@ -75,23 +76,25 @@ export default function DraggableAssistant({
         </Button>
       </div>
       <div className="w-full px-4 flex flex-col justify-between h-full">
-        <div className="p-3 flex items-center gap-2 w-full bg-primary-50 h-full">
-          <span>
-            <ImageComponent
-              className=""
-              src="/assets/icons/paper-tick.svg"
-              alt="assistant-icon"
-            />
-          </span>
-          <Typography variant="body1" className="text-primary-800">
-            We can help you add more ideas and personalize it. Select the text
-            you want to work on and try again!
-          </Typography>
+        <div className="p-3  w-full bg-primary-50 h-full">
+          <div className="flex justify-center items-center ">
+            <span className="">
+              <ImageComponent
+                className=""
+                src="/assets/icons/paper-tick.svg"
+                alt="assistant-icon"
+              />
+            </span>
+            <Typography variant="body1" className="text-primary-800">
+              We can help you add more ideas and personalize it. Select the text
+              you want to work on and try again!
+            </Typography>
+          </div>
         </div>
         <div className="h-full">
           {" "}
           {/* Added h-full to ensure it takes full height */}
-          <AssistantInput message="" setMessage={() => {}} />
+          <AssistantInput message={message} setMessage={setMessage} />
         </div>
       </div>
     </PopoverContent>

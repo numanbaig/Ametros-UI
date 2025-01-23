@@ -15,6 +15,7 @@ import {
   Heading1,
   Heading2,
   Heading3,
+  Menu,
 } from "lucide-react";
 import ImageComponent from "@/components/image-component/image-component";
 import { Typography } from "@/components/typography/typography";
@@ -194,7 +195,10 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
         {title}
       </Typography>
       <div className="border border-gray-300 rounded-lg bg-white overflow-hidden pr-2 pl-4 py-2">
-        <div className="min-h-[402px] w-full" onClick={focus}>
+        <div
+          className=" max-h-[340px] sm:min-h-[402px] w-full overflow-y-scroll"
+          onClick={focus}
+        >
           <Editor
             ref={editorRef}
             editorState={editorState}
@@ -227,26 +231,63 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
                 <Redo2 size={20} />
               </button>
             </div>
-            {editorButtons.map((button) => (
-              <button
-                key={button.id}
-                onMouseDown={(e) =>
-                  handleButtonClick(e, button.action, button.value)
-                }
-                className={`p-1.5 rounded transition-colors text-primary-800  ${
-                  button.action === "inline"
-                    ? isInlineStyleActive(button.value)
+            <div className="hidden sm:block">
+              {editorButtons.map((button) => (
+                <button
+                  key={button.id}
+                  onMouseDown={(e) =>
+                    handleButtonClick(e, button.action, button.value)
+                  }
+                  className={`p-1.5 rounded transition-colors text-primary-800  ${
+                    button.action === "inline"
+                      ? isInlineStyleActive(button.value)
+                        ? "bg-gray-200 text-blue-600"
+                        : "hover:bg-gray-200 text-gray-700"
+                      : isBlockTypeActive(button.value)
                       ? "bg-gray-200 text-blue-600"
                       : "hover:bg-gray-200 text-gray-700"
-                    : isBlockTypeActive(button.value)
-                    ? "bg-gray-200 text-blue-600"
-                    : "hover:bg-gray-200 text-gray-700"
-                }`}
-                title={button.title}
-              >
-                {button.icon}
-              </button>
-            ))}
+                  }`}
+                  title={button.title}
+                >
+                  {button.icon}
+                </button>
+              ))}
+            </div>
+            <div className="block sm:hidden">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button className="bg-transparent p-0">
+                    <ImageComponent
+                      src="/assets/icons/ai.svg"
+                      alt="ai-icon"
+                      className="size-4"
+                    />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-80">
+                  {editorButtons.map((button) => (
+                    <button
+                      key={button.id}
+                      onMouseDown={(e) =>
+                        handleButtonClick(e, button.action, button.value)
+                      }
+                      className={`p-1.5 rounded transition-colors text-primary-800  ${
+                        button.action === "inline"
+                          ? isInlineStyleActive(button.value)
+                            ? "bg-gray-200 text-blue-600"
+                            : "hover:bg-gray-200 text-gray-700"
+                          : isBlockTypeActive(button.value)
+                          ? "bg-gray-200 text-blue-600"
+                          : "hover:bg-gray-200 text-gray-700"
+                      }`}
+                      title={button.title}
+                    >
+                      {button.icon}
+                    </button>
+                  ))}
+                </PopoverContent>
+              </Popover>
+            </div>
           </div>
           <div className="relative size-6 rounded-full flex justify-center items-center bg-primary-600 cursor-pointer">
             <Popover open={assisstant} onOpenChange={setAssistant}>
