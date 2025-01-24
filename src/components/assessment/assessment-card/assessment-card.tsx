@@ -32,7 +32,7 @@ const DashboardAssessmentCard = () => {
           ))}
         </div>
       ) : (
-        <div className="md:w-[100%] w-[90vw] flex  shrink">
+        <div className="md:w-[100%] w-[90vw] flex shrink">
           <Card className="w-full shrink border-none ">
             <ScrollArea className="w-full !border-none shadow-custom bg-white rounded-[16px] px-6 shrink">
               <Table className="w-full border-none">

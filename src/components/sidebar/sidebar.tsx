@@ -39,15 +39,9 @@ const DashboardSidebar = ({
     return pathname.startsWith(itemUrl);
   };
 
-  // Track window width in state
-  const [windowWidth, setWindowWidth] = React.useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
-
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setWindowWidth(width);
       if (width <= 980 && width >= 768) {
         setOpen(false);
       }
@@ -59,12 +53,6 @@ const DashboardSidebar = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [setOpen]);
-
-  React.useEffect(() => {
-    if (windowWidth <= 980 && windowWidth >= 768) {
-      setOpen(false);
-    }
-  }, [windowWidth, setOpen]);
 
   return (
     <Sidebar collapsible="icon" {...props}>
