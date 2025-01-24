@@ -2,6 +2,9 @@ import React from "react";
 import Loader from "./(componenents)/loader";
 import TextEditor from "@/app/(instructor-view)/dashboard/new-assessment/(componenents)/text-editor/tiny-editor";
 import { Typography } from "@/components/typography/typography";
+import DashboardCheckbox from "./(componenents)/check-box";
+import DashboardTextArea from "./(componenents)/textarea";
+import DashboardRadioButtons from "./(componenents)/radio";
 
 const DashbaordNewAssessmentPage = () => {
   const loader = false;
@@ -28,6 +31,15 @@ const DashbaordNewAssessmentPage = () => {
             title="Interaction instructions (shown to learner)"
             content=""
           />
+          <DashboardCheckbox />
+          <DashboardTextArea label="Openning question" />
+          <DashboardTextArea label="Follow-up questions" />
+          <div className="space-y-4 w-full h-full pb-">
+            <Typography variant="body1" className="text-neutral-black">
+              Show overall points or percentage grade on assessment
+            </Typography>
+            <DashboardRadioButtons />
+          </div>
         </div>
       )}
     </div>
