@@ -7,9 +7,15 @@ import { Typography } from "../../typography/typography";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const DashbaordAssessmentHeader = () => {
+const DashbaordAssessmentHeader = ({
+  filterTabs,
+}: {
+  filterTabs: { name: string; href: string }[];
+}) => {
   const pathname = usePathname();
   const isNewAssessmentPage = pathname.includes("new-assessment");
+  const studentsDashbaordPage =
+    pathname.includes("students") || pathname.startsWith("/students");
 
   return (
     <div className="space-y-6">
@@ -20,7 +26,9 @@ const DashbaordAssessmentHeader = () => {
         >
           {isNewAssessmentPage
             ? `${pathname.split("/")[2].replace("-", " ")}`
-            : "Assessment"}
+            : studentsDashbaordPage
+            ? "Dashboard"
+            : "Assessments"}
         </Typography>
         <DashboardCustomButton
           className={cn(
@@ -34,7 +42,10 @@ const DashbaordAssessmentHeader = () => {
           {isNewAssessmentPage ? "Save" : "Create Assessment"}
         </DashboardCustomButton>
       </div>
-      <DashbaordFilterTabs isNewAssessmentPage={isNewAssessmentPage} />
+      <DashbaordFilterTabs
+        tabs={filterTabs}
+        isNewAssessmentPage={isNewAssessmentPage}
+      />
     </div>
   );
 };

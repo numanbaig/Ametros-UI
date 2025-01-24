@@ -9,16 +9,31 @@ import DashboardAuthButtons from "@/app/auth/(components)/auth-buttons";
 import { Menu } from "lucide-react";
 import { useSidebar } from "../ui/sidebar";
 import DashboardUserProfileDrawer from "../user-profile-drawer/user-profile-drawer";
+import { usePathname } from "next/navigation";
 const DashboardHeader = () => {
   const isLoggedIn = true;
   const { setOpen, isMobile, setOpenMobile } = useSidebar();
+  const pathname = usePathname();
   return (
     <div className="flex justify-between items-center w-full py-4 sm:px-8 px-4 h-20 bg-[#F8F8F8]">
       {isLoggedIn ? (
         <>
-          <div className="hidden md:block">
-            <DashboardBreadcrumbs />
-          </div>
+          {pathname.startsWith("/students") || pathname.includes("students") ? (
+            <div className="">
+              <Image
+                src={"/assets/logo.png"}
+                alt="logo"
+                height={38}
+                width={120}
+                priority
+                className=" w-full"
+              />
+            </div>
+          ) : (
+            <div className="hidden md:block">
+              <DashboardBreadcrumbs />
+            </div>
+          )}
           {isMobile && (
             <div
               className={cn(
