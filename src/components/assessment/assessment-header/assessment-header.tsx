@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const DashbaordAssessmentHeader = ({
   filterTabs,
 }: {
-  filterTabs: { name: string; href: string }[];
+  filterTabs?: { name: string; href: string }[];
 }) => {
   const pathname = usePathname();
   const isNewAssessmentPage = pathname.includes("new-assessment");
