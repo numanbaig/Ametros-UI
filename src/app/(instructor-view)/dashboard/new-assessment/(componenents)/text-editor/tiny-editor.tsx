@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import DraggableAssistant from "../draggable-assisstant";
+import AssistantInput from "@/components/assistant/assistant-input";
 interface EditorButton {
   id: string;
   title: string;
@@ -37,6 +38,8 @@ interface EditorButton {
 
 const TextEditor = ({ title, content }: { title: string; content: string }) => {
   const [assisstant, setAssistant] = useState(false);
+  const [message, setMessage] = useState<string>("");
+
   const initialText = `You are a newly hired Sales Representative at GreenGrid Dynamics, a B2B software company focused on empowering businesses in the renewable energy sector through a specialized CRM tool. Your mentor, Taylor Nguyen, has sent you the LinkedIn profile of an old contact, Mark Reyes, and a document regarding GreenGrid's CRM tool. Taylor has set up a meeting with Mark and wants you to take the lead on pitching the CRM tool to him.
   https://www.linkedin.com/in/markreyes/
   After you read the document and LinkedIn profile, go ahead and reach out to Mark by starting the conversation below. When you are ready to end the conversation, hit the "Get Assessment" button in the lower right corner of the screen.`;
@@ -196,7 +199,7 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
       </Typography>
       <div className="border border-gray-300 rounded-lg bg-white overflow-hidden pr-2 pl-4 py-2">
         <div
-          className=" max-h-[340px] sm:min-h-[402px] w-full overflow-y-scroll"
+          className=" max-h-[340px] sm:min-h-[402px] w-full overflow-y-scroll remove-scrollbar"
           onClick={focus}
         >
           <Editor
@@ -289,10 +292,31 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
               </Popover>
             </div>
           </div>
-          <div className="relative size-6 rounded-full flex justify-center items-center bg-primary-600 cursor-pointer">
+
+          {/* <div className="sm:flex hidden"> */}
+          <Popover open={assisstant} onOpenChange={setAssistant}>
+            <PopoverTrigger asChild>
+              <div>
+                <Button className="relative size-6 rounded-full flex justify-center items-center bg-primary-600 cursor-pointer p-0">
+                  <ImageComponent
+                    src="/assets/icons/ai.svg"
+                    alt="ai-icon"
+                    className="size-4"
+                  />
+                </Button>
+              </div>
+            </PopoverTrigger>
+            <DraggableAssistant setAssisstant={setAssistant} />
+          </Popover>
+          {/* </div> */}
+          {/* 
+          <div className="sm:hidden block">
             <Popover open={assisstant} onOpenChange={setAssistant}>
               <PopoverTrigger asChild>
-                <Button className="bg-transparent p-0">
+                <Button
+                  className="relative size-6 rounded-full flex justify-center items-center bg-primary-600 cursor-pointer p-0"
+                  onClick={() => setAssistant(true)}
+                >
                   <ImageComponent
                     src="/assets/icons/ai.svg"
                     alt="ai-icon"
@@ -300,9 +324,44 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
                   />
                 </Button>
               </PopoverTrigger>
-              <DraggableAssistant setAssisstant={setAssistant} />
+              <PopoverContent className="w-[300px] xs:w-[389px] rounded-[16px] shadow-assitant h-[288px] bg-white z-[9999] p-0">
+                <div className="flex justify-between items-center px-4 py-2">
+                  <div />
+                  <Button
+                    className="bg-transparent p-0"
+                    onClick={() => setAssistant(false)}
+                  >
+                    <ImageComponent
+                      src="/assets/icons/cross.svg"
+                      alt="close-popup"
+                    />
+                  </Button>
+                </div>
+                <div className="w-full px-4 flex flex-col justify-between h-full">
+                  <div className="p-3  w-full bg-primary-50 h-full">
+                    <div className="flex justify-center items-center ">
+                      <span className="">
+                        <ImageComponent
+                          className=""
+                          src="/assets/icons/paper-tick.svg"
+                          alt="assistant-icon"
+                        />
+                      </span>
+                      <Typography variant="body1" className="text-primary-800">
+                        We can help you add more ideas and personalize it.
+                        Select the text you want to work on and try again!
+                      </Typography>
+                    </div>
+                  </div>
+                  <div className="h-full">
+                    {" "}
+                    Added h-full to ensure it takes full height
+                    <AssistantInput message={message} setMessage={setMessage} />
+                  </div>
+                </div>
+              </PopoverContent>
             </Popover>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -310,3 +369,6 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
 };
 
 export default TextEditor;
+
+{
+}
