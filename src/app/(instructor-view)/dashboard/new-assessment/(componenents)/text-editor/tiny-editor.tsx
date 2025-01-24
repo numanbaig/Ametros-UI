@@ -27,6 +27,7 @@ import {
 import { Button } from "@/components/ui/button";
 import DraggableAssistant from "../draggable-assisstant";
 import AssistantInput from "@/components/assistant/assistant-input";
+import { useSidebar } from "@/components/ui/sidebar";
 interface EditorButton {
   id: string;
   title: string;
@@ -38,8 +39,7 @@ interface EditorButton {
 
 const TextEditor = ({ title, content }: { title: string; content: string }) => {
   const [assisstant, setAssistant] = useState(false);
-  const [message, setMessage] = useState<string>("");
-
+  const { isMobile } = useSidebar();
   const initialText = `You are a newly hired Sales Representative at GreenGrid Dynamics, a B2B software company focused on empowering businesses in the renewable energy sector through a specialized CRM tool. Your mentor, Taylor Nguyen, has sent you the LinkedIn profile of an old contact, Mark Reyes, and a document regarding GreenGrid's CRM tool. Taylor has set up a meeting with Mark and wants you to take the lead on pitching the CRM tool to him.
   https://www.linkedin.com/in/markreyes/
   After you read the document and LinkedIn profile, go ahead and reach out to Mark by starting the conversation below. When you are ready to end the conversation, hit the "Get Assessment" button in the lower right corner of the screen.`;
@@ -211,7 +211,7 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
           />
         </div>
         <div className="flex justify-between items-center w-full">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 w-full">
             <div className="flex items-center gap-1">
               <button
                 onMouseDown={onUndo}
@@ -234,47 +234,21 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
                 <Redo2 size={20} />
               </button>
             </div>
-            <div className="hidden sm:block">
-              {editorButtons.map((button) => (
-                <button
-                  key={button.id}
-                  onMouseDown={(e) =>
-                    handleButtonClick(e, button.action, button.value)
-                  }
-                  className={`p-1.5 rounded transition-colors text-primary-800  ${
-                    button.action === "inline"
-                      ? isInlineStyleActive(button.value)
-                        ? "bg-gray-200 text-blue-600"
-                        : "hover:bg-gray-200 text-gray-700"
-                      : isBlockTypeActive(button.value)
-                      ? "bg-gray-200 text-blue-600"
-                      : "hover:bg-gray-200 text-gray-700"
-                  }`}
-                  title={button.title}
-                >
-                  {button.icon}
-                </button>
-              ))}
-            </div>
-            <div className="block sm:hidden">
+            {isMobile ? (
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button className="bg-transparent p-0">
-                    <ImageComponent
-                      src="/assets/icons/ai.svg"
-                      alt="ai-icon"
-                      className="size-4"
-                    />
+                  <Button className="relative size-6 rounded-full flex justify-center items-center bg-primary-600 cursor-pointer p-0">
+                    <Menu size={20} />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-80">
+                <PopoverContent className="w-full ml-6 flex justify-between items-center gap-x-2">
                   {editorButtons.map((button) => (
-                    <button
+                    <Button
                       key={button.id}
                       onMouseDown={(e) =>
                         handleButtonClick(e, button.action, button.value)
                       }
-                      className={`p-1.5 rounded transition-colors text-primary-800  ${
+                      className={`rounded transition-colors !text-primary-800 bg-transparent p-0  ${
                         button.action === "inline"
                           ? isInlineStyleActive(button.value)
                             ? "bg-gray-200 text-blue-600"
@@ -286,17 +260,40 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
                       title={button.title}
                     >
                       {button.icon}
-                    </button>
+                    </Button>
                   ))}
                 </PopoverContent>
               </Popover>
-            </div>
+            ) : (
+              <>
+                {editorButtons.map((button) => (
+                  <button
+                    key={button.id}
+                    onMouseDown={(e) =>
+                      handleButtonClick(e, button.action, button.value)
+                    }
+                    className={`p-1.5 rounded transition-colors text-primary-800  ${
+                      button.action === "inline"
+                        ? isInlineStyleActive(button.value)
+                          ? "bg-gray-200 text-blue-600"
+                          : "hover:bg-gray-200 text-gray-700"
+                        : isBlockTypeActive(button.value)
+                        ? "bg-gray-200 text-blue-600"
+                        : "hover:bg-gray-200 text-gray-700"
+                    }`}
+                    title={button.title}
+                  >
+                    {button.icon}
+                  </button>
+                ))}
+              </>
+            )}
           </div>
 
           {/* <div className="sm:flex hidden"> */}
-          <Popover open={assisstant} onOpenChange={setAssistant}>
-            <PopoverTrigger asChild>
-              <div>
+          <div className="w-full flex justify-end">
+            <Popover open={assisstant} onOpenChange={setAssistant}>
+              <PopoverTrigger asChild>
                 <Button className="relative size-6 rounded-full flex justify-center items-center bg-primary-600 cursor-pointer p-0">
                   <ImageComponent
                     src="/assets/icons/ai.svg"
@@ -304,10 +301,10 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
                     className="size-4"
                   />
                 </Button>
-              </div>
-            </PopoverTrigger>
-            <DraggableAssistant setAssisstant={setAssistant} />
-          </Popover>
+              </PopoverTrigger>
+              <DraggableAssistant setAssisstant={setAssistant} />
+            </Popover>
+          </div>
           {/* </div> */}
           {/* 
           <div className="sm:hidden block">
