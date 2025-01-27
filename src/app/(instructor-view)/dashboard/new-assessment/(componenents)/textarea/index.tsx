@@ -10,6 +10,7 @@ import ImageComponent from "@/components/image-component/image-component";
 import { Button } from "@/components/ui/button";
 const DashboardTextArea = ({ label }: { label: string }) => {
   const [assisstant, setAssisstant] = useState<boolean>(false);
+  const [userMessage, setUserMessage] = useState<string>("");
   return (
     <div className="relative grid w-full gap-1">
       <Label htmlFor="message">
@@ -33,7 +34,11 @@ const DashboardTextArea = ({ label }: { label: string }) => {
               />
             </Button>
           </PopoverTrigger>
-          <DraggableAssistant setAssisstant={setAssisstant} />
+          <DraggableAssistant
+            userMessage={userMessage}
+            setUserMessage={setUserMessage}
+            setAssisstant={setAssisstant}
+          />
         </Popover>
       </div>
     </div>

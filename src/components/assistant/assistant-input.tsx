@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 interface AssistantInput {
   userMessage: string;
-  setUserMessage: React.Dispatch<React.SetStateAction<string>>;
+  setUserMessage: (value: string) => void;
   handleSubmit: React.FormEventHandler<HTMLFormElement>;
 }
 

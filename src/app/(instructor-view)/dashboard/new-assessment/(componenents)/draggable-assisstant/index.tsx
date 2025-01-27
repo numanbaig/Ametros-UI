@@ -11,14 +11,17 @@ import React, { useState, useEffect, useRef } from "react";
 
 export default function DraggableAssistant({
   setAssisstant,
+  userMessage,
+  setUserMessage,
 }: {
   setAssisstant: (value: boolean) => void;
+  userMessage: string;
+  setUserMessage: (value: string) => void;
 }) {
   const [position, setPosition] = useState({ x: -430, y: -350 });
   const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef<HTMLDivElement>(null);
   const startPosRef = useRef({ x: 0, y: 0 });
-  const [message, setMessage] = useState<string>("");
   const { isMobile } = useSidebar();
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -56,6 +59,11 @@ export default function DraggableAssistant({
     };
   }, [isDragging]);
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(userMessage);
+  };
+
   return (
     <>
       {isMobile ? (
@@ -88,7 +96,11 @@ export default function DraggableAssistant({
             <div className="h-full">
               {" "}
               {/* Added h-full to ensure it takes full height */}
-              <AssistantInput message={message} setMessage={setMessage} />
+              <AssistantInput
+                userMessage={userMessage}
+                setUserMessage={setUserMessage}
+                handleSubmit={handleSubmit}
+              />
             </div>
           </div>
         </PopoverContent>
@@ -133,7 +145,11 @@ export default function DraggableAssistant({
             <div className="h-full">
               {" "}
               {/* Added h-full to ensure it takes full height */}
-              <AssistantInput message={message} setMessage={setMessage} />
+              <AssistantInput
+                userMessage={userMessage}
+                setUserMessage={setUserMessage}
+                handleSubmit={handleSubmit}
+              />
             </div>
           </div>
         </PopoverContent>

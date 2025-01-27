@@ -39,6 +39,7 @@ interface EditorButton {
 
 const TextEditor = ({ title, content }: { title: string; content: string }) => {
   const [assisstant, setAssistant] = useState(false);
+  const [userMessage, setUserMessage] = useState<string>("");
   const { isMobile } = useSidebar();
   const initialText = `You are a newly hired Sales Representative at GreenGrid Dynamics, a B2B software company focused on empowering businesses in the renewable energy sector through a specialized CRM tool. Your mentor, Taylor Nguyen, has sent you the LinkedIn profile of an old contact, Mark Reyes, and a document regarding GreenGrid's CRM tool. Taylor has set up a meeting with Mark and wants you to take the lead on pitching the CRM tool to him.
   https://www.linkedin.com/in/markreyes/
@@ -302,7 +303,11 @@ const TextEditor = ({ title, content }: { title: string; content: string }) => {
                   />
                 </Button>
               </PopoverTrigger>
-              <DraggableAssistant setAssisstant={setAssistant} />
+              <DraggableAssistant
+                setAssisstant={setAssistant}
+                userMessage={userMessage}
+                setUserMessage={setUserMessage}
+              />
             </Popover>
           </div>
           {/* </div> */}
