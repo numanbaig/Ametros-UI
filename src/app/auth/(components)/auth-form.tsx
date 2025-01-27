@@ -135,7 +135,25 @@ const DashboardAuthForm = ({ type }: { type: string }) => {
 
         {type === AuthType.REGISTER && (
           <div className="flex md:flex-row flex-col gap-y-2 justify-between items-start w-full">
-            <PasswordRequirements />
+            <div className="space-y-6">
+              <PasswordRequirements />
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="terms"
+                  className="size-6 rounded-[4px p-1] text-white"
+                />
+                <label
+                  htmlFor="terms"
+                  className="text-[16px] text-customGray-600 font-medium leading-6"
+                >
+                  I accept the
+                  <Link href={"/"} className="text-primary-600 underline">
+                    {" "}
+                    Terms and Conditions
+                  </Link>
+                </label>
+              </div>
+            </div>
             <div>
               <Recaptchaverification />
             </div>

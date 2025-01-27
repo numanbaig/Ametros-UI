@@ -41,10 +41,9 @@ const AssistantMainScreen = ({
         </Typography>
       </div>
       {messages &&
-        messages.map((message) => {
-          console.log(message);
+        messages.map((message, index) => {
           return (
-            <>
+            <React.Fragment key={index}>
               {message.sender === "assistant" ? (
                 <div className="flex items-start gap-x-2 bg-customGray-100 rounded-[8px] p-3 w-fit">
                   <ImageComponent
@@ -72,7 +71,7 @@ const AssistantMainScreen = ({
                   </div>
                 </div>
               )}
-            </>
+            </React.Fragment>
           );
         })}
     </div>

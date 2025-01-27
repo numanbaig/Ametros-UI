@@ -57,7 +57,7 @@ const DashbaordFilterTabs: React.FC<{
     <>
       {/* Desktop View */}
       <div className="hidden sm:flex justify-between items-center w-full gap-x-6">
-        <div className="flex items-center gap-x-2 w-full">
+        <div className="flex items-center gap-x-2 w-full shrink">
           <ul className="sm:flex hidden gap-x-2 bg-transparent">
             {tabsData.map((tab, index) => (
               <Link

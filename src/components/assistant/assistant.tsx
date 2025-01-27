@@ -10,6 +10,7 @@ import ImageComponent from "../image-component/image-component";
 import AssistantHeader from "./assistant-header";
 import AssistantContent from "./assistant-content";
 import AssistantInput from "./assistant-input";
+import AssistantFileUpload from "./file-upload";
 
 const DashboardAssistant = ({
   setPopup,
@@ -18,6 +19,9 @@ const DashboardAssistant = ({
 }) => {
   const [openChatBox, setOpenChatBox] = useState<boolean>(false);
   const [userMessage, setUserMessage] = useState<string>("");
+  const [currentScreen, setCurrentScreen] = React.useState<
+    "start" | "assessment" | "main"
+  >("start");
   const [messages, setMessages] = useState<
     { sender: string; message: string }[]
   >([]);
@@ -51,8 +55,13 @@ const DashboardAssistant = ({
         <AssistantHeader setOpenChatBox={setOpenChatBox} />
         <div className="relative sm:p-4 h-auto">
           <div className="flex flex-col justify-between flex-1 w-full">
-            <AssistantContent messages={messages} />
-            <div className="w-full flex justify-center items-center">
+            <AssistantContent
+              messages={messages}
+              setCurrentScreen={setCurrentScreen}
+              currentScreen={currentScreen}
+            />
+            <div className="sapce-y-2 w-full">
+              {currentScreen === "main" && <AssistantFileUpload />}
               <AssistantInput
                 userMessage={userMessage}
                 setUserMessage={setUserMessage}

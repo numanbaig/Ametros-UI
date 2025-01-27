@@ -1,17 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
+import React, { SetStateAction } from "react";
 import AssistantStartContent from "./assistant-start-content";
 import AssessmentSelectionScreen from "./assessment-selection-screen";
 import AssistantMainScreen from "./assisstant-main-screen";
 
 interface AssistantContentProps {
   messages: { sender: string; message: string }[];
+  currentScreen: string;
+  setCurrentScreen: React.Dispatch<
+    SetStateAction<"start" | "assessment" | "main">
+  >;
 }
 
-const AssistantContent = ({ messages }: AssistantContentProps) => {
-  const [currentScreen, setCurrentScreen] = React.useState<
-    "start" | "assessment" | "main"
-  >("start");
+const AssistantContent = ({
+  messages,
+  currentScreen,
+  setCurrentScreen,
+}: AssistantContentProps) => {
+  // const [currentScreen, setCurrentScreen] = React.useState<
+  //   "start" | "assessment" | "main"
+  // >("start");
 
   const [chatType, setChatType] = React.useState<{
     type: string;
@@ -62,6 +70,8 @@ const AssistantContent = ({ messages }: AssistantContentProps) => {
 
   React.useEffect(() => {
     if (messages.length > 0 && currentScreen === "start") {
+      setCurrentScreen("main");
+    } else if (messages.length > 0 && currentScreen === "assessment") {
       setCurrentScreen("main");
     }
   }, [messages]);
