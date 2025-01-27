@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import {
   Popover,
@@ -16,7 +17,18 @@ const DashboardAssistant = ({
   setPopup: (value: boolean) => void;
 }) => {
   const [openChatBox, setOpenChatBox] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>("");
+  const [userMessage, setUserMessage] = useState<string>("");
+  const [messages, setMessages] = useState<
+    { sender: string; message: string }[]
+  >([]);
+
+  const handleSubmitMessage = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(userMessage);
+    if (!userMessage) return;
+    setMessages((prev) => [...prev, { sender: "user", message: userMessage }]);
+  };
+
   return (
     <Popover open={openChatBox} onOpenChange={setOpenChatBox}>
       <PopoverTrigger asChild>
@@ -38,9 +50,13 @@ const DashboardAssistant = ({
         <AssistantHeader setOpenChatBox={setOpenChatBox} />
         <div className="relative sm:p-4 h-auto">
           <div className="flex flex-col justify-between flex-1 w-full">
-            <AssistantContent />
+            <AssistantContent messages={messages} />
             <div className="w-full flex justify-center items-center">
-              <AssistantInput message={message} setMessage={setMessage} />
+              <AssistantInput
+                userMessage={userMessage}
+                setUserMessage={setUserMessage}
+                handleSubmit={handleSubmitMessage}
+              />
             </div>
           </div>
         </div>

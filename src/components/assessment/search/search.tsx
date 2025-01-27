@@ -10,6 +10,7 @@ const Search = () => {
         type="text"
         name="search"
         placeholder="Search"
+        autoComplete="off"
       />
       <BsSearch className="text-neutral-black flex sm:hidden size-6" />
     </>

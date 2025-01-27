@@ -1,9 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import AssistantStartContent from "./assistant-start-content";
 import AssessmentSelectionScreen from "./assessment-selection-screen";
 import AssistantMainScreen from "./assisstant-main-screen";
 
-const AssistantContent = () => {
+interface AssistantContentProps {
+  messages: { sender: string; message: string }[];
+}
+
+const AssistantContent = ({ messages }: AssistantContentProps) => {
   const [currentScreen, setCurrentScreen] = React.useState<
     "start" | "assessment" | "main"
   >("start");
@@ -12,9 +17,11 @@ const AssistantContent = () => {
     type: string;
     builder: string;
   }>({
-    type: "",
-    builder: "",
+    type: "Create Assessment",
+    builder: "Assessment Builder",
   });
+
+  console.log(messages);
 
   const renderContent = () => {
     switch (currentScreen) {
@@ -29,6 +36,7 @@ const AssistantContent = () => {
             />
           </div>
         );
+
       case "assessment":
         return (
           <div className="sm:mb-[137px] mb-[60px] w-full sm:w-[533px] overflow-x-hidden">
@@ -39,16 +47,24 @@ const AssistantContent = () => {
             />
           </div>
         );
+
       case "main":
         return (
           <div className="sm:mb-[137px] mb-[60px] w-full sm:!w-[533px] overflow-x-hidden">
-            <AssistantMainScreen chatType={chatType} />
+            <AssistantMainScreen chatType={chatType} messages={messages} />
           </div>
         );
+
       default:
         return null;
     }
   };
+
+  React.useEffect(() => {
+    if (messages.length > 0 && currentScreen === "start") {
+      setCurrentScreen("main");
+    }
+  }, [messages]);
 
   return (
     <div className="!min-h-full sm:max-h-[600px] max-h-[50vh] overflow-auto remove-scrollbar">
