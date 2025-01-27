@@ -27,6 +27,7 @@ const DashboardAssistant = ({
     console.log(userMessage);
     if (!userMessage) return;
     setMessages((prev) => [...prev, { sender: "user", message: userMessage }]);
+    setUserMessage("");
   };
 
   return (
